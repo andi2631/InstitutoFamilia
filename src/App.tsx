@@ -1,5 +1,4 @@
-import React from 'react';
-import { Menu, X, Mail, Phone, MapPin } from 'lucide-react';
+
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import AboutUs from './components/AboutUs';
