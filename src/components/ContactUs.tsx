@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin } from 'lucide-react';
+import TransitionsSnackbar from './SnackBar'
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -7,6 +8,8 @@ const ContactUs = () => {
     email: '',
     message: '',
   });
+
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -18,10 +21,13 @@ const ContactUs = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Here you would typically send the email using a backend service
+    setSnackbarOpen(true);
     console.log('Form submitted:', formData);
-    alert('Thank you for your message! We will get back to you soon.');
     setFormData({ name: '', email: '', message: '' });
+  };
+
+  const handleCloseSnackbar = () => {
+    setSnackbarOpen(false);
   };
 
   return (
@@ -85,6 +91,7 @@ const ContactUs = () => {
                 </button>
               </div>
             </form>
+            <TransitionsSnackbar open={snackbarOpen} handleClose={handleCloseSnackbar} />
           </div>
           <div className="bg-white shadow-md rounded px-8 pt-6 pb-8">
             <h3 className="text-xl font-bold mb-4">Get in Touch</h3>
