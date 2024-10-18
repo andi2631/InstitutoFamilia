@@ -68,10 +68,10 @@ const ContactUs = () => {
           Contact Us
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div>
+          <div className="bg-white shadow-md rounded px-8 pt-6 pb-8">
             <form
               onSubmit={handleSubmit}
-              className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+              className="bg-white px-8 pt-6 pb-8 mb-4"
             >
               <div className="mb-4">
                 <label
