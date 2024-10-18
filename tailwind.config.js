@@ -9,7 +9,7 @@ export default {
       colors: {
         pantone: {
           // Example: Pantone 19-4052 Classic Blue
-          'classic-blue': '#0F4C81',
+          'classic-blue': '#003DA5',
           // You can add more Pantone colors here
         },
       },
