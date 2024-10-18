@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -7,32 +8,68 @@ const ContactUs = () => {
     email: '',
     message: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(
+    null
+  );
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prevState => ({
+    setFormData((prevState) => ({
       ...prevState,
       [name]: value,
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Here you would typically send the email using a backend service
-    console.log('Form submitted:', formData);
-    alert('Thank you for your message! We will get back to you soon.');
-    setFormData({ name: '', email: '', message: '' });
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      // Replace these with your actual EmailJS service ID, template ID, and user ID
+      const result = await emailjs.send(
+        'service_ajarp6z',
+        'template_bsqz3ba',
+        {
+          to_email: 'acorrotti@gmail.com',
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+        },
+        'zwgmP-UN6Q1MeHPnn'
+      );
+
+      console.log('Email sent successfully:', result.text);
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      console.error('Failed to send email:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <section id="contact" className="py-16 bg-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl mb-8">Contact Us</h2>
+        <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl mb-8">
+          Contact Us
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
-            <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <form
+              onSubmit={handleSubmit}
+              className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+            >
               <div className="mb-4">
-                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
+                <label
+                  className="block text-gray-700 text-sm font-bold mb-2"
+                  htmlFor="name"
+                >
                   Name
                 </label>
                 <input
@@ -47,7 +84,10 @@ const ContactUs = () => {
                 />
               </div>
               <div className="mb-4">
-                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
+                <label
+                  className="block text-gray-700 text-sm font-bold mb-2"
+                  htmlFor="email"
+                >
                   Email
                 </label>
                 <input
@@ -62,7 +102,10 @@ const ContactUs = () => {
                 />
               </div>
               <div className="mb-6">
-                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="message">
+                <label
+                  className="block text-gray-700 text-sm font-bold mb-2"
+                  htmlFor="message"
+                >
                   Message
                 </label>
                 <textarea
@@ -78,12 +121,26 @@ const ContactUs = () => {
               </div>
               <div className="flex items-center justify-between">
                 <button
-                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${
+                    isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
+                  }`}
                   type="submit"
+                  disabled={isSubmitting}
                 >
-                  Send Message
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                 </button>
               </div>
+              {submitStatus === 'success' && (
+                <p className="text-green-500 mt-4">
+                  Thank you for your message! We'll get back to you soon.
+                </p>
+              )}
+              {submitStatus === 'error' && (
+                <p className="text-red-500 mt-4">
+                  Sorry, there was an error sending your message. Please try
+                  again later.
+                </p>
+              )}
             </form>
           </div>
           <div className="bg-white shadow-md rounded px-8 pt-6 pb-8">
