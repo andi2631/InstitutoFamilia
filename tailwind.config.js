@@ -7,10 +7,11 @@ export default {
   theme: {
     extend: {
       colors: {
+        fontFamily: {
+          'lexend': ['Lexend', 'sans-serif'],
+        },
         pantone: {
-          // Example: Pantone 19-4052 Classic Blue
-          'classic-blue': '#003DA5',
-          // You can add more Pantone colors here
+          'classic-blue': '#003DA5'
         },
       },
     },

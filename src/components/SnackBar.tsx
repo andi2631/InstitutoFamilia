@@ -1,7 +1,6 @@
 import React from 'react';
 import Snackbar from '@mui/material/Snackbar';
 import Slide, { SlideProps } from '@mui/material/Slide';
-import Fade from '@mui/material/Fade';
 import { TransitionProps } from '@mui/material/transitions';
 import { Alert } from '@mui/material';
 
@@ -14,6 +13,7 @@ function SlideTransition(props: SlideProps) {
 interface SnackbarProps {
     open: boolean;
     handleClose: () => void;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     Transition?: React.ComponentType<TransitionProps & { children: React.ReactElement<any, any>; }>;
 }
 
@@ -32,7 +32,7 @@ export default function TransitionsSnackbar({ open, handleClose }: SnackbarProps
                 variant="filled"
                 sx={{ width: '100%' }}
             >
-                Thank you for your message! We will get back to you soon.
+                Gracias por su mensaje, nos contactaremos con usted a la brevedad.
             </Alert>
         </Snackbar>
     );
