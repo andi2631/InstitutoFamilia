@@ -1,7 +1,10 @@
-import React from 'react';
 import { MISION } from '../utils/const';
+import { useNavigate } from 'react-router-dom';
 
 const AboutUs = () => {
+
+  const navigate = useNavigate();
+
   return (
     <section id="about" className="py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -12,7 +15,7 @@ const AboutUs = () => {
           <p>{MISION}</p>
         </div>
         <div className="mt-10">
-          <a href="#" className="text-blue-600 hover:text-blue-800 font-medium">Learn more about our mission →</a>
+          <a onClick={() => navigate('/aboutUs')} className="text-blue-600 hover:text-blue-800 font-medium cursor-pointer">Más información... →</a>
         </div>
       </div>
     </section>

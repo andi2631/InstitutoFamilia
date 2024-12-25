@@ -1,19 +1,23 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const navigate = useNavigate()
 
   return (
     <nav className="bg-white shadow-lg py-2">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <a href="#" className="text-xl font-lexend font-bold text-gray-800"> INSTITUTO DE CIENCIAS FAMILIARES</a>
+            <a href="#" onClick={() => navigate('/')} className="text-xl font-lexend font-bold text-gray-800"> INSTITUTO DE CIENCIAS FAMILIARES</a>
             <img
+              onClick={() => navigate('/')}
               src="https://instituto-familia-s3.s3.us-west-2.amazonaws.com/Instituto+de+Ciencias+Familiares-26.png"
               alt="fotarda"
-              className="h-auto w-56 ml-4 md:ml-4"
+              className="h-auto w-56 ml-4 md:ml-4 cursor-pointer"
             />
           </div>
 
