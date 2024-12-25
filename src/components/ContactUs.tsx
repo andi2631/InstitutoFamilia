@@ -28,13 +28,11 @@ const ContactUs = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSnackbarOpen(true);
-    console.log('Form submitted:', formData);
     setFormData({ name: '', email: '', message: '' });
     setIsSubmitting(true);
     setSubmitStatus(null);
 
     try {
-      // Replace these with your actual EmailJS service ID, template ID, and user ID
       const result = await emailjs.send(
         'service_ajarp6z',
         'template_bsqz3ba',
@@ -135,7 +133,7 @@ const ContactUs = () => {
                   type="submit"
                   disabled={isSubmitting}
                 >
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                  {isSubmitting ? 'Sending...' : 'Enviar mensaje'}
                 </button>
               </div>
               {submitStatus === 'success' && (
