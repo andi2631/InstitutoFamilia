@@ -25,7 +25,7 @@ const Navbar = () => {
             <div className="ml-10 flex items-baseline space-x-4">
               <a href="#" className="text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium">Home</a>
               <a href="#about" className="text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium">About Us</a>
-              <a href="#gallery" className="text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium">Gallery</a>
+              <a onClick={() => navigate('/galeria')} className="text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium">Gallery</a>
               <a href="#contact" className="text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium">Contáctanos</a>
             </div>
           </div>
@@ -44,7 +44,7 @@ const Navbar = () => {
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <a href="#" className="text-gray-600 hover:text-gray-800 block px-3 py-2 rounded-md text-base font-medium">Home</a>
             <a href="#about" className="text-gray-600 hover:text-gray-800 block px-3 py-2 rounded-md text-base font-medium">About Us</a>
-            <a href="#gallery" className="text-gray-600 hover:text-gray-800 block px-3 py-2 rounded-md text-base font-medium">Gallery</a>
+            <a onClick={() => navigate('/galeria')} className="text-gray-600 hover:text-gray-800 block px-3 py-2 rounded-md text-base font-medium">Gallery</a>
             <a href="#contact" className="text-gray-600 hover:text-gray-800 block px-3 py-2 rounded-md text-base font-medium">Contact Us</a>
           </div>
         </div>

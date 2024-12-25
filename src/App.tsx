@@ -24,9 +24,8 @@ function App() {
           
           {/* Ejemplo de otras rutas si las necesitas por separado 
               (solo a modo de ejemplo, puedes eliminarlas si no las usas) */}
-          <Route path="/aboutUs" element={<AntecedentesMagisterio />} />
-          <Route path="/about" element={<AboutUs />} />
-          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/info" element={<AntecedentesMagisterio />} />
+          <Route path="/galeria" element={<Gallery />} />
           <Route path="/contact" element={<ContactUs />} />
         </Routes>
 
