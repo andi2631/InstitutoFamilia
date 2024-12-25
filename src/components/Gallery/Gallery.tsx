@@ -31,7 +31,7 @@ const Gallery = () => {
   return (
     <section id="gallery" className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl mb-8">Nuestro eventos: </h2>
+        <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl mb-8">Nuestros eventos: </h2>
         <Slider {...settings}>
           {images.map((image, index) => (
             <ImageComponent key={index} src={image.src} alt={image.alt} />
