@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import TransitionsSnackbar from './SnackBar'
 import emailjs from '@emailjs/browser';
+import OrganizationList from './Organizations/OrganizationList';
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -65,7 +66,7 @@ const ContactUs = () => {
     <section id="contact" className="py-16 bg-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl mb-8">
-          Contact Us
+          ¡Contáctanos!
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="bg-white shadow-md rounded px-8 pt-6 pb-8">
@@ -78,13 +79,13 @@ const ContactUs = () => {
                   className="block text-gray-700 text-sm font-bold mb-2"
                   htmlFor="name"
                 >
-                  Name
+                  Nombre:
                 </label>
                 <input
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="name"
                   type="text"
-                  placeholder="Your Name"
+                  placeholder="Nombre..."
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
@@ -96,13 +97,13 @@ const ContactUs = () => {
                   className="block text-gray-700 text-sm font-bold mb-2"
                   htmlFor="email"
                 >
-                  Email
+                  Email:
                 </label>
                 <input
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="email"
                   type="email"
-                  placeholder="your@email.com"
+                  placeholder="tu@email.com"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
@@ -114,12 +115,12 @@ const ContactUs = () => {
                   className="block text-gray-700 text-sm font-bold mb-2"
                   htmlFor="message"
                 >
-                  Message
+                  Mensaje:
                 </label>
                 <textarea
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="message"
-                  placeholder="Your message here..."
+                  placeholder="Escibe tu mensaje aquí..."
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
@@ -129,9 +130,8 @@ const ContactUs = () => {
               </div>
               <div className="flex items-center justify-between">
                 <button
-                  className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${
-                    isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
-                  }`}
+                  className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
+                    }`}
                   type="submit"
                   disabled={isSubmitting}
                 >
@@ -140,21 +140,21 @@ const ContactUs = () => {
               </div>
               {submitStatus === 'success' && (
                 <p className="text-green-500 mt-4">
-                  Thank you for your message! We'll get back to you soon.
+                  ¡ Gracias por su mensaje, nos pondremos en contacto con usted pronto !
                 </p>
               )}
               {submitStatus === 'error' && (
                 <p className="text-red-500 mt-4">
-                  Sorry, there was an error sending your message. Please try
-                  again later.
+                  Hubo un error al enviar su mensaje, por favor inténtelo de nuevo.
                 </p>
               )}
             </form>
             <TransitionsSnackbar open={snackbarOpen} handleClose={handleCloseSnackbar} />
           </div>
           <div className="bg-white shadow-md rounded px-8 pt-6 pb-8">
-            <h3 className="text-xl font-bold mb-4">Get in Touch</h3>
+            <h2 className="text-xl font-bold mb-4">Contactos: </h2>
             <div className="space-y-4">
+              <h3 className="text-xl font-bold mb-4">Curso: "Sobre rocas"  </h3>
               <p className="flex items-center">
                 <Mail className="mr-2" size={20} />
                 info@yourorganization.com
@@ -170,6 +170,8 @@ const ContactUs = () => {
             </div>
           </div>
         </div>
+        <OrganizationList />
+
       </div>
     </section>
   );
