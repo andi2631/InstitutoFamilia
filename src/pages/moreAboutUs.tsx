@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 const AntecedentesMagisterio = () => {
 
-  const navigator = useNavigate() 
+  const navigator = useNavigate()
   return (
     <section id="antecedentes-magisterio" className="py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -21,7 +21,7 @@ const AntecedentesMagisterio = () => {
             y acuciante su misión de proclamar a todos el designio de Dios sobre el matrimonio y
             la familia, asegurando su plena vitalidad, así como su promoción humana y cristiana,
             contribuyendo de este modo a la renovación de la sociedad y del mismo Pueblo de
-            Dios” 
+            Dios”
             <em>(Familiaris Consortio, 3)</em>
           </p>
 
@@ -31,7 +31,7 @@ const AntecedentesMagisterio = () => {
             sociedad que ama y acoge la vida, es necesario y urgente que la familia misma sea
             ayudada y apoyada (...) La Iglesia debe promover incansablemente una pastoral
             familiar que ayude a cada familia a redescubrir y vivir con alegría y valor su misión en
-            relación con el Evangelio de la vida” 
+            relación con el Evangelio de la vida”
             <em>(Evangelium Vitae, 94)</em>.
           </p>
 
@@ -47,13 +47,13 @@ const AntecedentesMagisterio = () => {
             “Potenciar la pastoral de acompañamiento de los matrimonios con encuentros de
             profundización en la misión y oración…” “Acompañar a las familias en crisis”…
             “Insertar matrimonios en la estructura diocesana para potenciar la pastoral familiar, la
-            formación de agentes, de seminaristas y sacerdotes…” 
+            formación de agentes, de seminaristas y sacerdotes…”
             <em>(Amoris Laetitia)</em>
           </p>
         </div>
 
         {/* Subtítulo: Características del ICF */}
-        <h3 className="text-3xl font-lexend text-gray-900 sm:text-4xl mt-10">
+        <h3 className="text-3xl font-bold font-lexend text-gray-900 sm:text-4xl mt-10">
           CARACTERISTICAS DEL ICF
         </h3>
 

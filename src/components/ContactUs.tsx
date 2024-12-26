@@ -11,9 +11,7 @@ const ContactUs = () => {
     message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(
-    null
-  );
+
 
   const [snackbarOpen, setSnackbarOpen] = useState(false);
 
@@ -27,10 +25,8 @@ const ContactUs = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSnackbarOpen(true);
     setFormData({ name: '', email: '', message: '' });
     setIsSubmitting(true);
-    setSubmitStatus(null);
 
     try {
       const result = await emailjs.send(
@@ -46,11 +42,10 @@ const ContactUs = () => {
       );
 
       console.log('Email sent successfully:', result.text);
-      setSubmitStatus('success');
       setFormData({ name: '', email: '', message: '' });
+      setSnackbarOpen(true);
     } catch (error) {
       console.error('Failed to send email:', error);
-      setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
     }
@@ -133,19 +128,10 @@ const ContactUs = () => {
                   type="submit"
                   disabled={isSubmitting}
                 >
-                  {isSubmitting ? 'Sending...' : 'Enviar mensaje'}
+                  {isSubmitting ? 'Enviando...' : 'Enviar mensaje'}
                 </button>
               </div>
-              {submitStatus === 'success' && (
-                <p className="text-green-500 mt-4">
-                  ¡ Gracias por su mensaje, nos pondremos en contacto con usted pronto !
-                </p>
-              )}
-              {submitStatus === 'error' && (
-                <p className="text-red-500 mt-4">
-                  Hubo un error al enviar su mensaje, por favor inténtelo de nuevo.
-                </p>
-              )}
+
             </form>
             <TransitionsSnackbar open={snackbarOpen} handleClose={handleCloseSnackbar} />
           </div>
