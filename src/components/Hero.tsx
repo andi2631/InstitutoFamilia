@@ -1,4 +1,4 @@
-import { WHO_WE_ARE } from '../utils/const';
+import { WHO_WE_ARE } from '../utils/consts';
 
 const Hero = () => {
   return (

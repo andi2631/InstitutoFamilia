@@ -1,4 +1,4 @@
-import { MISION } from '../utils/const';
+import { MISION } from '../utils/consts';
 import { useNavigate } from 'react-router-dom';
 
 const AboutUs = () => {

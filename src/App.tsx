@@ -7,8 +7,20 @@ import Navbar from './components/Navbar';
 import Gallery from './components/Gallery/Gallery';
 import ContactUs from './components/ContactUs';
 import AntecedentesMagisterio from './pages/moreAboutUs';
+import { useEffect } from 'react';
+import 'aos/dist/aos.css';
+
+import AOS from 'aos';
 
 function App() {
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, 
+      once: false, 
+    });
+  }, []);
+
   return (
     <Router>
       <div className="min-h-screen bg-gray-100">
