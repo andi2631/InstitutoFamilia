@@ -11,12 +11,13 @@ import { useEffect } from 'react';
 import 'aos/dist/aos.css';
 
 import AOS from 'aos';
+import EventPage from './pages/event';
 
 function App() {
 
   useEffect(() => {
     AOS.init({
-      duration: 1000, 
+      duration: 500, 
       once: false, 
     });
   }, []);
@@ -31,6 +32,9 @@ function App() {
           <Route path="/info" element={<AntecedentesMagisterio />} />
           <Route path="/galeria" element={<Gallery />} />
           <Route path="/contact" element={<ContactUs />} />
+
+        <Route path="/events/:eventId" element={<EventPage />} />
+          <></>
         </Routes>
 
         <footer className="bg-gray-800 text-white py-6">

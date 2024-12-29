@@ -2,36 +2,62 @@ import EventComponent from "./EventComponent";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
+import { useNavigate } from "react-router-dom";
+import { EventData } from "../../utils/types";
 
 const settings = {
   dots: true,
   infinite: false,
   slidesToShow: 1,
   slidesToScroll: 1,
-  speed: 5000,
-  cssEase: "linear",
-  arrows: true,
+  speed: 500,
+ arrows: true,
 };
 
-const bucketUrl = 'https://instituto-familia-s3.s3.us-west-2.amazonaws.com/Screenshot+2024-10-21+083746.png'
-
 const EventGallery = () => {
-  const events = [
-    { src: `${bucketUrl}`, alt: 'Community event' },
-    { src: 'https://source.unsplash.com/random/800x600?volunteer', alt: 'Volunteers working' },
-    { src: 'https://source.unsplash.com/random/800x600?education', alt: 'Educational program' },
-    { src: 'https://source.unsplash.com/random/800x600?environment', alt: 'Environmental project' },
-    { src: 'https://source.unsplash.com/random/800x600?teamwork', alt: 'Team collaboration' },
-    { src: 'https://source.unsplash.com/random/800x600?impact', alt: 'Making an impact' },
+
+  const navigate = useNavigate();
+
+  const handleClick = (params : EventParams) => {
+    const fullRoute = Object.keys(params).reduce((acc, key) => {
+      const value = params[key as keyof EventParams];
+      return acc.replace(`:${key}`, String(value));
+    }, 'events/:eventId');
+  
+    console.log('Redirigiendo a:', fullRoute);
+    navigate(fullRoute);
+  }
+
+  interface EventParams {
+    eventId: number;
+  }
+
+
+  
+
+ const events : EventData[] = [
+  {
+    src: 'flyer curso matrimonio',
+    alt: 'Curso de Matrimonio',
+    eventName: 'Curso de Matrimonio',
+    id: 1,
+  },
+  {
+    src: 'flyer sobre rocas',
+    alt: 'Sobre Rocas',
+    eventName: 'Sobre Rocas',
+    id: 2,
+  },
   ];
 
   return (
-    <section id="gallery" className="py-16 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="gallery" className="py-16 bg-white relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
         <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl mb-8">Proximos comienzos: </h2>
         <Slider {...settings}>
-          {events.map((image, index) => (
-            <EventComponent key={index} src={image.src} alt={image.alt} />
+          {events.map((event, index) => (
+            //Colocar flyers de eventos a comenzar
+            <EventComponent key={index} src={event.src} alt={event.alt} eventName={event.eventName} onClick={() => handleClick({eventId : event.id})} />
           ))}
         </Slider>
       </div>
