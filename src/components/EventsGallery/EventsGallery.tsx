@@ -1,5 +1,4 @@
-
-import ImageComponent from './ImageComponent';
+import EventComponent from "./EventComponent";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
@@ -16,8 +15,8 @@ const settings = {
 
 const bucketUrl = 'https://instituto-familia-s3.s3.us-west-2.amazonaws.com/Screenshot+2024-10-21+083746.png'
 
-const Gallery = () => {
-  const images = [
+const EventGallery = () => {
+  const events = [
     { src: `${bucketUrl}`, alt: 'Community event' },
     { src: 'https://source.unsplash.com/random/800x600?volunteer', alt: 'Volunteers working' },
     { src: 'https://source.unsplash.com/random/800x600?education', alt: 'Educational program' },
@@ -29,10 +28,10 @@ const Gallery = () => {
   return (
     <section id="gallery" className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl mb-8">Nuestros eventos: </h2>
+        <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl mb-8">Proximos comienzos: </h2>
         <Slider {...settings}>
-          {images.map((image, index) => (
-            <ImageComponent key={index} src={image.src} alt={image.alt} />
+          {events.map((image, index) => (
+            <EventComponent key={index} src={image.src} alt={image.alt} />
           ))}
         </Slider>
       </div>
@@ -41,4 +40,4 @@ const Gallery = () => {
 };
 
 
-export default Gallery;
+export default EventGallery;

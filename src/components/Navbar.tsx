@@ -22,7 +22,7 @@ const Navbar = () => {
 
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
-              <a href="" className="relative text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium transition duration-300 ease transform hover:scale-105 hover:bg-gray-200">Inicio</a>
+              <a href="" onClick={() => navigate('/')} className="relative text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium transition duration-300 ease transform hover:scale-105 hover:bg-gray-200">Inicio</a>
               <a href="#about" className="relative text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium transition duration-300 ease transform hover:scale-105 hover:bg-gray-200">Sobre nosotros</a>
               <a href="#" onClick={() => navigate('/galeria')} className="relative text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium transition duration-300 ease transform hover:scale-105 hover:bg-gray-200">Galeria</a>
               <a href="#contact" className="relative text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium transition duration-300 ease transform hover:scale-105 hover:bg-gray-200">Contáctanos</a>
