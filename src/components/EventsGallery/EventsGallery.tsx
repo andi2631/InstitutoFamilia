@@ -23,17 +23,13 @@ const EventGallery = () => {
       const value = params[key as keyof EventParams];
       return acc.replace(`:${key}`, String(value));
     }, 'events/:eventId');
-  
-    console.log('Redirigiendo a:', fullRoute);
+    
     navigate(fullRoute);
   }
 
   interface EventParams {
     eventId: number;
   }
-
-
-  
 
  const events : EventData[] = [
   {

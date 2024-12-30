@@ -1,5 +1,5 @@
 
-import { EventProperties } from "../../utils/types";
+import { EventProperties } from '../../utils/interfaces';
 import { cursoMatrimonioInfo } from './CursoMatrimonio/cursoMatrimonioInfo';
 import { sobreRocasInfo } from "./SobreRocas/sobreRocasinfo";
 

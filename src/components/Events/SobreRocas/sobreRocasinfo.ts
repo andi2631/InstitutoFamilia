@@ -1,4 +1,4 @@
-import { EventProperties } from "../../../utils/types";
+import { EventProperties } from "../../../utils/interfaces";
 
 export const sobreRocasInfo : EventProperties = {
   id: 1,
