@@ -18,6 +18,8 @@ const EventComponent: React.FC<EventComponentProps> = ({ src, alt, eventName, on
         alt={alt}
         className="w-full h-64 object-cover object-center transition duration-300 ease-in-out transform hover:scale-105"
         onClick={onClick}
+        style={{ cursor: 'pointer' }}
+
       />
     </div>
   );
