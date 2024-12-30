@@ -11,7 +11,7 @@ const Navbar = () => {
           <div className="flex items-center">
             <img
               src="https://instituto-familia-s3.s3.us-west-2.amazonaws.com/Instituto+de+Ciencias+Familiares-26.png"
-              alt="fotarda"
+              alt="Logo ICF"
               className="h-auto w-56 ml-4 md:ml-4"
             />
           </div>

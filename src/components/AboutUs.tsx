@@ -8,11 +8,16 @@ const AboutUs = () => {
         <div></div>
         <h3 className="text-3xl font-lexend text-gray-900 sm:text-4xl mt-8"> Nuestra Misión: </h3>
         <div className="mt-6 text-xl text-gray-500">
-          <p>Our organization is committed to making a difference in the lives of people and communities around the world. With a focus on education, sustainability, and social justice, we strive to create lasting positive change.</p>
-          <p className="mt-4">Founded in 2010, we have grown from a small group of passionate individuals to a global network of changemakers. Our dedicated team and volunteers work tirelessly to implement innovative solutions to some of the world's most pressing challenges.</p>
+          <p>
+            Somos una Organización social católica que anuncia la Buena Noticia del matrimonio 
+            y la Familia a través de la investigación, la formación humana y espiritual 
+            de los integrantes de las familias, de la promoción y defensa de la vida en 
+            todas sus etapas y a través de la divulgación de documentos de interés 
+            vinculados a la Familia.
+          </p>
         </div>
         <div className="mt-10">
-          <a href="#" className="text-blue-600 hover:text-blue-800 font-medium">Learn more about our mission →</a>
+          <a href="MoreAboutUs" className="text-blue-600 hover:text-blue-800 font-medium">Aprende más sobre nosotros →</a>
         </div>
       </div>
     </section>

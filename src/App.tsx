@@ -4,6 +4,8 @@ import Hero from './components/Hero';
 import AboutUs from './components/AboutUs';
 import Gallery from './components/Gallery/Gallery';
 import ContactUs from './components/ContactUs';
+import Footer from './components/Footer';
+import MoreAboutUs from './components/MoreAboutUs';
 
 
 function App() {
@@ -14,11 +16,8 @@ function App() {
       <AboutUs />
       <Gallery />
       <ContactUs />
-      <footer className="bg-gray-800 text-white py-6">
-        <div className="container mx-auto text-center">
-          <p>&copy; 2025 Instituo de Ciencias Familiares. All rights reserved.</p>
-        </div>
-      </footer>
+      <MoreAboutUs />
+      <Footer />
     </div>
   );
 }
