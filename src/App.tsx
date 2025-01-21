@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/home';
 
 import Navbar from './components/Navbar';
-import Gallery from './components/Gallery/Gallery';
 import ContactUs from './components/ContactUs';
 import AntecedentesMagisterio from './pages/moreAboutUs';
 import { useEffect } from 'react';
@@ -12,6 +11,9 @@ import 'aos/dist/aos.css';
 
 import AOS from 'aos';
 import EventPage from './pages/event';
+import MainGallery from './components/Gallery/mainGallery';
+
+import { EventsWithPhotos } from './components/Gallery/utils/GalleryList';
 
 function App() {
 
@@ -30,7 +32,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/info" element={<AntecedentesMagisterio />} />
-          <Route path="/galeria" element={<Gallery />} />
+          <Route path="/galeria" element={<MainGallery galleries={EventsWithPhotos} />} />
           <Route path="/contact" element={<ContactUs />} />
 
         <Route path="/events/:eventId" element={<EventPage />} />
