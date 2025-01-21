@@ -11,7 +11,7 @@ import 'aos/dist/aos.css';
 
 import AOS from 'aos';
 import EventPage from './pages/event';
-import MainGallery from './components/Gallery/mainGallery';
+import MainGallery from './components/Gallery/MainGallery';
 
 import { EventsWithPhotos } from './components/Gallery/utils/GalleryList';
 
