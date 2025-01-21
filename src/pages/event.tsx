@@ -13,7 +13,6 @@ const EventPage: React.FC = () => {
     return <p>Error: El parámetro `eventId` no es válido.</p>;
   }
 
-  // Validar que el ID exista en la lista de eventos válidos
   const validEventIds = [1, 2];
   if (!validEventIds.includes(numericEventId)) {
     return (
