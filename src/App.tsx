@@ -41,7 +41,7 @@ function App() {
 
         <footer className="bg-gray-800 text-white py-6">
           <div className="container mx-auto text-center">
-            <p>&copy; 2024 Your Organization. All rights reserved.</p>
+            <p>&copy; 2024 Instituto de Ciencias Familiares. Derechos reservados.</p>
           </div>
         </footer>
       </div>
