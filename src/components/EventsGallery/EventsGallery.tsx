@@ -37,13 +37,13 @@ const EventGallery = () => {
     src: 'flyer curso matrimonio', //Cambiar por la url de la imagen
     alt: 'Curso: Matrimonio',
     eventName: 'Curso: Matrimonio',
-    id: 1,
+    id: 2,
   },
   {
     src: 'flyer sobre rocas', //Cambiar por la url de la imagen
     alt: 'Curso: Sobre Rocas',
     eventName: 'Curso: Sobre Rocas',
-    id: 2,
+    id: 1,
   },
   ];
 
