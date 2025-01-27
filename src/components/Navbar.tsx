@@ -1,11 +1,33 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const navigate = useNavigate()
+  useEffect(() => {
+    
+    if (location.hash) {
+      const element = document.querySelector(location.hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  }, [location]);
+
+  const handleNavigation = (path: string, hash?: string) => {
+    navigate(path);
+    if (hash) {
+      setTimeout(() => {
+        const element = document.querySelector(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 0); // Esperar a que el DOM se actualice
+    }
+  };
 
   return (
     <nav className="bg-white shadow-lg py-2">
@@ -13,7 +35,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <img
-              onClick={() => navigate('/')}
+              onClick={() => handleNavigation('/')}
               src="https://instituto-familia-s3.s3.us-west-2.amazonaws.com/Instituto+de+Ciencias+Familiares-26.png"
               alt="ICF"
               className="h-auto w-56 ml-19 pl-15 md:ml-10 cursor-pointer"
@@ -22,12 +44,13 @@ const Navbar = () => {
 
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
-              <a href="" onClick={() => navigate('/')} className="relative text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium transition duration-300 ease transform hover:scale-105 hover:bg-gray-200">Inicio</a>
-              <a href="#about" className="relative text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium transition duration-300 ease transform hover:scale-105 hover:bg-gray-200">Sobre nosotros</a>
-              <a href="#" onClick={() => navigate('/galeria')} className="relative text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium transition duration-300 ease transform hover:scale-105 hover:bg-gray-200">Galeria</a>
-              <a href="#contact" className="relative text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium transition duration-300 ease transform hover:scale-105 hover:bg-gray-200">Contáctanos</a>
+              <a onClick={() => handleNavigation('/')} className="relative text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium transition duration-300 ease transform hover:scale-105 hover:bg-gray-200">Inicio</a>
+              <a onClick={() => handleNavigation('/#about', '#about')} className="relative text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium transition duration-300 ease transform hover:scale-105 hover:bg-gray-200">Sobre nosotros</a>
+              <a onClick={() => handleNavigation('/#contact', '#contact')} className="relative text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium transition duration-300 ease transform hover:scale-105 hover:bg-gray-200">Contáctanos</a>
+              <a onClick={() => handleNavigation('/galeria')} className="relative text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium transition duration-300 ease transform hover:scale-105 hover:bg-gray-200">Galeria</a>
             </div>
           </div>
+
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -41,10 +64,10 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <a href="#" className="text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium">Inicio</a>
-            <a href="#about" className="text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium">About Us</a>
-            <a onClick={() => navigate('/galeria')} className="text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium">Galeria</a>
-            <a href="#contact" className="text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium">Contáctanos</a>
+            <a onClick={() => handleNavigation('/')} className="text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium">Inicio</a>
+            <a onClick={() => handleNavigation('/', '#about')} className="text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium">Sobre nosotros</a>
+            <a onClick={() => handleNavigation('/galeria')} className="text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium">Galeria</a>
+            <a onClick={() => handleNavigation('/', '#contact')} className="text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium">Contáctanos</a>
           </div>
         </div>
       )}

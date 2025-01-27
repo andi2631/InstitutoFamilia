@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, } from 'lucide-react';
 import TransitionsSnackbar from './SnackBar'
 import emailjs from '@emailjs/browser';
 import OrganizationList from './Organizations/OrganizationList';
@@ -136,9 +136,9 @@ const ContactUs = () => {
             <TransitionsSnackbar open={snackbarOpen} handleClose={handleCloseSnackbar} />
           </div>
           <div className="bg-white shadow-md rounded px-8 pt-6 pb-8">
-            <h2 className="text-xl font-bold mb-4">Contactos: </h2>
+            <h2 className="text-2xl font-bold mb-4">Contactos: </h2>
             <div className="space-y-4">
-              <h3 className="text-xl font-bold mb-4">Curso: "Sobre rocas"  </h3>
+              <h3 className="text-l font-bold mb-4">Curso "Sobre rocas":  </h3>
               <p className="flex items-center">
                 <Mail className="mr-2" size={20} />
                 info@yourorganization.com
@@ -147,9 +147,23 @@ const ContactUs = () => {
                 <Phone className="mr-2" size={20} />
                 +1 (555) 123-4567
               </p>
+              <h3 className="text-l font-bold mb-4">Curso "Matrimonio": </h3>
               <p className="flex items-center">
-                <MapPin className="mr-2" size={20} />
-                123 Main St, Anytown, USA 12345
+                <Mail className="mr-2" size={20} />
+                info@yourorganization.com
+              </p>
+              <p className="flex items-center">
+                <Phone className="mr-2" size={20} />
+                +1 (555) 123-4567
+              </p>
+              <h3 className="text-l font-bold mb-4">Contacto general ICF: </h3>
+              <p className="flex items-center">
+                <Mail className="mr-2" size={20} />
+                info@yourorganization.com
+              </p>
+              <p className="flex items-center">
+                <Phone className="mr-2" size={20} />
+                +1 (555) 123-4567
               </p>
             </div>
           </div>
