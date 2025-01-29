@@ -8,7 +8,7 @@ const Navbar = () => {
   const location = useLocation();
 
   useEffect(() => {
-    
+
     if (location.hash) {
       const element = document.querySelector(location.hash);
       if (element) {
@@ -25,7 +25,7 @@ const Navbar = () => {
         if (element) {
           element.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-      }, 0); // Esperar a que el DOM se actualice
+      }, 0);
     }
   };
 
@@ -44,12 +44,33 @@ const Navbar = () => {
 
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
-              <a onClick={() => handleNavigation('/')} className="relative text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium transition duration-300 ease transform hover:scale-105 hover:bg-gray-200">Inicio</a>
-              <a onClick={() => handleNavigation('/#about', '#about')} className="relative text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium transition duration-300 ease transform hover:scale-105 hover:bg-gray-200">Sobre nosotros</a>
-              <a onClick={() => handleNavigation('/#contact', '#contact')} className="relative text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium transition duration-300 ease transform hover:scale-105 hover:bg-gray-200">Contáctanos</a>
-              <a onClick={() => handleNavigation('/galeria')} className="relative text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium transition duration-300 ease transform hover:scale-105 hover:bg-gray-200">Galeria</a>
+              <a
+                onClick={() => handleNavigation('/')}
+                className="relative text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium transition duration-300 ease transform hover:scale-105 hover:bg-gray-200 cursor-pointer"
+              >
+                Inicio
+              </a>
+              <a
+                onClick={() => handleNavigation('/#about', '#about')}
+                className="relative text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium transition duration-300 ease transform hover:scale-105 hover:bg-gray-200 cursor-pointer"
+              >
+                Sobre nosotros
+              </a>
+              <a
+                onClick={() => handleNavigation('/#contact', '#contact')}
+                className="relative text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium transition duration-300 ease transform hover:scale-105 hover:bg-gray-200 cursor-pointer"
+              >
+                Contáctanos
+              </a>
+              <a
+                onClick={() => handleNavigation('/galeria')}
+                className="relative text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium transition duration-300 ease transform hover:scale-105 hover:bg-gray-200 cursor-pointer"
+              >
+                Galería
+              </a>
             </div>
           </div>
+
 
           <div className="md:hidden">
             <button
