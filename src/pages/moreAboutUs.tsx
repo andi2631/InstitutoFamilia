@@ -45,30 +45,28 @@ const AntecedentesMagisterio = () => {
 
         {/* Subtítulo: Características del ICF */}
         <h3 className="text-3xl font-bold text-center text-blue-800 mt-12 sm:text-4xl">
-          Características del ICF
+          Somos una organización civíl que se rige por los siguientes estatutos:
         </h3>
 
         {/* Lista de características */}
         <ul className="mt-6 bg-gray-50 p-6 rounded-lg shadow-md text-lg text-gray-800 space-y-4">
           <li className="flex items-start">
             <span className="text-blue-500 font-bold mr-2">•</span>
-            Es una organización de referencia en la Iglesia Católica y en la sociedad en temas vinculados a la Familia.
+            Promover la dignidad de la vida humana desde el mismo momento de la concepción hasta su muerte natural, según las enseñanzas del Magisterio de la Iglesia Católica. 
           </li>
           <li className="flex items-start">
             <span className="text-blue-500 font-bold mr-2">•</span>
-            Con identidad católica y perspectiva pastoral
+            Impartir conocimientos integrales sobre la transmisión de la Vida Humana con base en las normas teológicas y morales de la Iglesia Católica Apostólica Romana. La ortodoxia papal es la Roca sobre la cual ha de apoyarse.
           </li>
           <li className="flex items-start">
             <span className="text-blue-500 font-bold mr-2">•</span>
-            Tiene carácter nacional
+            Concientizar a los casados a la generosidad en su fecundidad, siendo la pareja en último término quien determine, según las normas éticas, cuantos y cuándo han de encarnar su amor.
           </li>
           <li className="flex items-start">
             <span className="text-blue-500 font-bold mr-2">•</span>
-            Promueve el trabajo multidisciplinario con estructura participativa.
+            Promover la Paternidad Responsable según los Métodos Naturales de diagnóstico de la Fertilidad, de acuerdo con la<a href="https://www.vatican.va/content/paul-vi/es/encyclicals/documents/hf_p-vi_enc_25071968_humanae-vitae.html"> Humanae Vitae</a> (link), Familiaris Consortio (link) y las Instrucciones de la Santa sede. 
           </li>
         </ul>
-
-        {/* Botón para regresar */}
         <div className="mt-10 text-center">
           <button
             onClick={() => navigator(-1)}

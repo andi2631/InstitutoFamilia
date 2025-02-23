@@ -138,32 +138,31 @@ const ContactUs = () => {
           <div className="bg-white shadow-md rounded px-8 pt-6 pb-8">
             <h2 className="text-2xl font-bold mb-4">Contactos: </h2>
             <div className="space-y-4">
-              <h3 className="text-l font-bold mb-4">Curso "Sobre rocas":  </h3>
+              <h3 className="text-l font-bold mb-4">Curso para matrimonios "SOBRE ROCA":  </h3>
               <p className="flex items-center">
                 <Mail className="mr-2" size={20} />
-                info@yourorganization.com
+                info.sobreroca@familia.org.uy
               </p>
               <p className="flex items-center">
                 <Phone className="mr-2" size={20} />
-                +1 (555) 123-4567
+                +598 99 313 326
               </p>
-              <h3 className="text-l font-bold mb-4">Curso "Matrimonio": </h3>
+              <h3 className="text-l font-bold mb-4">Curso para novios "CIMIENTOS": </h3>
               <p className="flex items-center">
                 <Mail className="mr-2" size={20} />
-                info@yourorganization.com
+                info.cimientos@familia.org.uy
               </p>
               <p className="flex items-center">
                 <Phone className="mr-2" size={20} />
-                +1 (555) 123-4567
+                +598 94 363 602
               </p>
               <h3 className="text-l font-bold mb-4">Contacto general ICF: </h3>
               <p className="flex items-center">
                 <Mail className="mr-2" size={20} />
-                info@yourorganization.com
+                icfuruguay@gmail.com  -  info@familia.org.uy
               </p>
               <p className="flex items-center">
-                <Phone className="mr-2" size={20} />
-                +1 (555) 123-4567
+               <b>“El que escucha mis Palabras y las practica, se parece a un hombre que queriendo construir una casa, cavó profundamente y puso los cimientos sobre la Roca”</b> 
               </p>
             </div>
           </div>
