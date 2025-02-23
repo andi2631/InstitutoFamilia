@@ -1,14 +1,14 @@
 import { S3Client, ListObjectsV2Command } from "@aws-sdk/client-s3";
 
 // Configuración del cliente S3 usando variables de entorno
-const BUCKET_NAME = import.meta.env.VITE_AWS_BUCKET_NAME!;
-const REGION = import.meta.env.VITE_AWS_REGION!;
+const BUCKET_NAME = import.meta.env.VITE_AWS_BUCKET_NAME! as string;
+const REGION = import.meta.env.VITE_AWS_REGION! as string;
 
 const s3Client = new S3Client({
   region: REGION,
   credentials: {
-    accessKeyId: import.meta.env.VITE_AWS_ACCESS_KEY_ID!,
-    secretAccessKey: import.meta.env.VITE_AWS_SECRET_ACCESS_KEY!,
+    accessKeyId: import.meta.env.VITE_AWS_ACCESS_KEY_ID! as string,
+    secretAccessKey: import.meta.env.VITE_AWS_SECRET_ACCESS_KEY! as string,
   },
 });
 
