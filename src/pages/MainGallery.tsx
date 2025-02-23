@@ -6,7 +6,7 @@ const folderNames = ["cimientos", "evento2", "evento3"]; // Ajusta con tus carpe
 const MainGallery: React.FC = () => {
 
   useEffect(() => {
-    console.log(import.meta.env.VITE_AWS_ACCESS_KEY_ID!)
+    console.log(import.meta.env.VITE_AWS_ACCESS_KEY_ID! as string)
   }, []);
   
 
