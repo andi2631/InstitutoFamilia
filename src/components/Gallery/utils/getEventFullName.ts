@@ -1,7 +1,7 @@
 export const setEventName = (eventName: string) => {
   switch (eventName) {
     case "cimientos":
-      return "cimientos del matrimonio";
+      return "Curso para novios: Cimientos 2024";
     default:
       return "Evento";
   }

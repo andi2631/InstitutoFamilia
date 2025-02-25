@@ -1,6 +1,5 @@
 import { S3Client, ListObjectsV2Command } from "@aws-sdk/client-s3";
 
-// Configuración del cliente S3 usando variables de entorno
 const BUCKET_NAME = import.meta.env.VITE_AWS_BUCKET_NAME! as string;
 const REGION = import.meta.env.VITE_AWS_REGION! as string;
 
@@ -12,7 +11,6 @@ const s3Client = new S3Client({
   },
 });
 
-// Definir los tipos de archivo multimedia
 export interface MediaFile {
   type: "image" | "video";
   src: string;
@@ -31,7 +29,7 @@ export interface GalleryProps {
 export const listMediaFromFolder = async (folderName: string): Promise<MediaFile[]> => {
   const params = {
     Bucket: BUCKET_NAME,
-    Prefix: `${folderName}/`,
+    Prefix: `${folderName}/`, //Folder en S3
   };
 
   try {
@@ -47,7 +45,7 @@ export const listMediaFromFolder = async (folderName: string): Promise<MediaFile
         } else if (fileType && ["mp4", "webm", "ogg"].includes(fileType)) {
           return { type: "video", src: `https://${BUCKET_NAME}.s3.${REGION}.amazonaws.com/${item.Key}`, alt: "Video del evento" };
         }
-        return undefined; // Evita devolver `null`
+        return undefined;
       })
       .filter((item): item is MediaFile => !!item) || [] // Asegura que el tipo sea correcto
     );
@@ -58,7 +56,7 @@ export const listMediaFromFolder = async (folderName: string): Promise<MediaFile
 };
 
 /**
- * Obtiene todas las galerías basadas en las carpetas dentro del bucket.
+ * Obtiene todas las galerías basadas en las carpetas dentro del bucket. 
  * @param folders Array con los nombres de las carpetas en S3.
  * @returns Promise<GalleryProps[]> - Lista de galerías con imágenes y videos.
  */

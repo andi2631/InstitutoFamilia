@@ -1,14 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Gallery from "../components/Gallery/Gallery";
 
-const folderNames = ["cimientos", "evento2", "evento3"]; // Ajusta con tus carpetas en S3
+const folderNames = ["cimientos"]; // Folders dentro de mi bucket de S3
 
 const MainGallery: React.FC = () => {
-
-  useEffect(() => {
-    console.log(import.meta.env.VITE_AWS_ACCESS_KEY_ID!)
-  }, []);
-  
 
   return (
     <div className="flex flex-col items-center gap-8">
