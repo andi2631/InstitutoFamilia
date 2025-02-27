@@ -3,4 +3,5 @@ export interface EventData {
   src: string;
   eventName: string;
   alt: string;
+  path: string;
 };

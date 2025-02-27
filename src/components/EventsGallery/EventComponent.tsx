@@ -1,7 +1,5 @@
 import React from 'react';
 
-//const bucketUrl = 'https://instituto-familia-s3.s3.us-west-2.amazonaws.com/Screenshot+2024-10-21+083746.png'
-
 interface EventComponentProps {
   src: string;
   alt: string;
@@ -11,17 +9,20 @@ interface EventComponentProps {
 
 const EventComponent: React.FC<EventComponentProps> = ({ src, alt, eventName, onClick }) => {
   return (
-    <div className="overflow-hidden rounded-lg shadow-lg m-2" onClick={onClick}>
-      <h3 className="text-2xl font-bold cursor-pointer text-white bg-gray-900 bg-opacity-75 p-2 object-cover object-center transition duration-300 ease-in-out transform hover:scale-105 text-center">{eventName}</h3>
+    <div className="w-full max-w-sm overflow-hidden rounded-lg shadow-lg m-2 cursor-pointer" onClick={onClick}>
+      {/* Título */}
+      <div className="bg-gray-700 text-white text-center font-bold p-3">
+        {eventName}
+      </div>
+      
+      {/* Imagen */}
       <img
         src={src}
         alt={alt}
-        className="w-full h-64 "
-        style={{ cursor: 'pointer' }}
+        className="w-full h-[500px] object-cover"
       />
     </div>
   );
 };
-
 
 export default EventComponent;

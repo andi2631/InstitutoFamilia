@@ -1,15 +1,15 @@
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { eventMap } from '../components/Events/eventsMap';
+import Gallery from '../components/Gallery/Gallery';
 
 const EventPage: React.FC = () => {
-  const { eventId } = useParams<{ eventId: string }>();
+  const { eventName } = useParams<{ eventName: string }>();
   const navigate = useNavigate();
 
-  const numericEventId = Number(eventId);
-
-  // Validar que el ID sea un número
-  if (isNaN(numericEventId) || numericEventId <= 0) {
+  console.log("eventName", eventName);
+  
+  if (!eventName) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 text-center">
         <p className="text-xl font-semibold text-red-600">
@@ -25,25 +25,25 @@ const EventPage: React.FC = () => {
     );
   }
 
-  const validEventIds = [1, 2];
-  if (!validEventIds.includes(numericEventId)) {
+  const validEventIds = ["sobreRocas", "cimientos"];
+  if (!validEventIds.includes(eventName)) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 text-center">
         <h1 className="text-3xl font-bold text-gray-800">Evento no encontrado</h1>
         <p className="text-lg text-gray-600 mt-2">
-          El evento con ID <span className="text-red-600 font-semibold">{numericEventId}</span> no existe.
+          El evento con nombre <span className="text-red-600 font-semibold">{eventName}</span> no existe.
         </p>
         <button
           onClick={() => navigate('/')}
           className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
         >
-          Volver a la página principal
+          Prueba con: /sobreRocas o /cimientos
         </button>
       </div>
     );
   }
 
-  const event = eventMap[numericEventId];
+  const event = eventMap[eventName];
 
   return (
     <div className="min-h-screen bg-gray-50 py-16">
@@ -53,14 +53,13 @@ const EventPage: React.FC = () => {
           <p className="mt-4 text-lg text-gray-700 leading-relaxed">
             {event.description}
           </p>
-
           <div className="mt-6">
             <p className="text-gray-600">
-              <span className="font-semibold text-blue-700">ID del Evento:</span> {eventId}
             </p>
-            {/* Si hay más detalles en event, puedes mostrarlos aquí */}
           </div>
-
+          <div className="flex flex-col items-center gap-8">
+            <Gallery eventName={event.folderName} />
+          </div>
           <button
             onClick={() => navigate('/')}
             className="mt-8 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition"

@@ -4,7 +4,6 @@ import Slider from "react-slick";
 import { GalleryProps, listMediaFromFolder, MediaFile } from "./utils/s3";
 import MediaComponent from "./MediaComponent";
 import { useEffect, useState } from "react";
-import { setEventName } from "./utils/getEventFullName";
 
 const settings = {
   dots: true,
@@ -46,7 +45,6 @@ const Gallery: React.FC<GalleryProps> = ({ eventName }) => {
 
   return (
     <div className="w-full max-w-4xl mx-auto my-8">
-      <h2 className="text-center text-2xl font-bold mb-4">{setEventName(eventName)}</h2>
       <Slider {...settings}>
         {mediaFiles.map((media, index) => (
           <div key={index} className="flex justify-center items-center">

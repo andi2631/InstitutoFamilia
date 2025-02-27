@@ -33,7 +33,7 @@ function App() {
           <Route path="/galeria" element={<MainGallery />} />
           <Route path="/contact" element={<ContactUs />} />
 
-        <Route path="/events/:eventId" element={<EventPage />} />
+        <Route path="/events/:eventName" element={<EventPage />} />
           <></>
         </Routes>
 
