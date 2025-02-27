@@ -3,34 +3,19 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { GalleryProps, listMediaFromFolder, MediaFile } from "./utils/s3";
 import MediaComponent from "./MediaComponent";
-import { useEffect, useState } from "react";
-
-const settings = {
-  dots: true,
-  infinite: true,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  speed: 1000, 
-  cssEase: "linear",
-  arrows: true,
-  autoplay: true,
-  autoplaySpeed: 3000,
-};
-
+import { useEffect, useState, useRef } from "react";
 
 const Gallery: React.FC<GalleryProps> = ({ eventName }) => {
-
   const [mediaFiles, setMediaFiles] = useState<MediaFile[]>([]);
-
   const [loading, setLoading] = useState<boolean>(true);
+  const [autoplay, setAutoplay] = useState<boolean>(true);
+  const sliderRef = useRef<Slider | null>(null);
 
   useEffect(() => {
     const fetchMedia = async () => {
       try {
-        let allMedia: MediaFile[] = [];
-          const media = await listMediaFromFolder(eventName);
-          allMedia = [...allMedia, ...media];
-        setMediaFiles(allMedia);
+        const media = await listMediaFromFolder(eventName);
+        setMediaFiles(media);
       } catch (error) {
         console.error("Error al cargar archivos multimedia:", error);
       } finally {
@@ -41,14 +26,41 @@ const Gallery: React.FC<GalleryProps> = ({ eventName }) => {
     fetchMedia();
   }, []);
 
-  if (loading) return <p> Cargando multimedia...</p>;
+  const handlePlay = () => {
+    setAutoplay(false);
+    sliderRef.current?.slickPause(); // Pausar el slider
+  };
+
+  const handlePause = () => {
+    setAutoplay(true);
+    sliderRef.current?.slickPlay(); // Reanudar el slider
+  };
+
+  if (loading) return <p>Cargando multimedia...</p>;
 
   return (
     <div className="w-full max-w-4xl mx-auto my-8">
-      <Slider {...settings}>
+      <Slider
+        ref={sliderRef}
+        dots={false}
+        infinite={true}
+        slidesToShow={1}
+        slidesToScroll={1}
+        speed={1000}
+        cssEase="linear"
+        arrows={true}
+        autoplay={autoplay}
+        autoplaySpeed={2500}
+      >
         {mediaFiles.map((media, index) => (
           <div key={index} className="flex justify-center items-center">
-            <MediaComponent src={media.src} alt={`Multimedia ${index}`} type={media.type} />
+            <MediaComponent
+              src={media.src}
+              alt={`Multimedia ${index}`}
+              type={media.type}
+              onPlay={handlePlay}
+              onPause={handlePause}
+            />
           </div>
         ))}
       </Slider>
