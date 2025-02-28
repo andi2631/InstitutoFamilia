@@ -22,14 +22,14 @@ const EventGallery = () => {
     {
       src: "https://instituto-familia-s3.s3.us-west-2.amazonaws.com/Cimientos_flyer.jpeg",
       alt: "Curso: Matrimonio",
-      eventName: "Curso: Matrimonio",
+      eventName: "Curso: Cimientos",
       id: 2,
       path: "cimientos",
     },
     {
       src: "https://via.placeholder.com/500x750?text=Flyer+no+disponible", // Placeholder si no hay imagen
       alt: "Curso: Sobre Rocas",
-      eventName: "Curso: Sobre Rocas",
+      eventName: "Sobre Rocas",
       id: 1,
       path: "sobreRocas",
     },

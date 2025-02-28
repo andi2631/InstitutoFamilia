@@ -28,12 +28,12 @@ const Gallery: React.FC<GalleryProps> = ({ eventName }) => {
 
   const handlePlay = () => {
     setAutoplay(false);
-    sliderRef.current?.slickPause(); // Pausar el slider
+    sliderRef.current?.slickPause(); 
   };
 
   const handlePause = () => {
     setAutoplay(true);
-    sliderRef.current?.slickPlay(); // Reanudar el slider
+    sliderRef.current?.slickPlay(); 
   };
 
   if (loading) return <p>Cargando multimedia...</p>;
