@@ -14,8 +14,8 @@ const AboutUs = () => {
         <div className="mt-6 text-xl text-gray-500">
           <p>{MISION}</p>
         </div>
-        <div className="mt-10">
-          <a onClick={() => navigate('/info')} className="text-blue-600 hover:text-blue-800 font-medium cursor-pointer">Leer mas... →</a>
+        <div className="mt-4">
+          <a onClick={() => navigate('/info')} className="text-blue-600 hover:text-blue-800 cursor-pointer">Leer mas... →</a>
         </div>
       </div>
     </section>

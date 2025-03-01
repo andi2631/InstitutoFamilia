@@ -36,9 +36,9 @@ const EventGallery = () => {
   ];
 
   return (
-    <section id="gallery" className="py-16 bg-gray-100">
+    <section id="gallery" className="py-10 bg-gray-100">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-extrabold text-gray-800 text-center mb-10">
+        <h2 className="text-4xl font-lexend-bold text-gray-800 text-center mb-5 ">
           Nuestras actividades:
         </h2>
         

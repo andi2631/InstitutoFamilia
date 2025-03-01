@@ -4,7 +4,7 @@ const AntecedentesMagisterio = () => {
   const navigator = useNavigate();
   return (
 
-    <section id="antecedentes-magisterio" className="py-16 bg-gray-100">
+    <section id="antecedentes-magisterio" className="py-16 bg-gray-100 font-lexend">
       <div className="max-w-5xl mx-auto px-6 sm:px-8">
 
       <h3 className="text-3xl font-bold text-left text-blue-800 sm:text-4xl mb-8">

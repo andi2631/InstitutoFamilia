@@ -11,7 +11,7 @@ const EventComponent: React.FC<EventComponentProps> = ({ src, alt, eventName, on
   return (
     <div className="w-full max-w-sm overflow-hidden rounded-lg shadow-lg m-2 cursor-pointer" onClick={onClick}>
       {/* Título */}
-      <div className="bg-gray-700 text-white text-center font-bold p-3">
+      <div className="bg-pantone-classic-blue font-bold text-white text-center font-lexend p-2">
         {eventName}
       </div>
       
@@ -19,7 +19,7 @@ const EventComponent: React.FC<EventComponentProps> = ({ src, alt, eventName, on
       <img
         src={src}
         alt={alt}
-        className="w-full h-[500px] object-cover"
+        className="w-full h-full object-cover"
       />
     </div>
   );
