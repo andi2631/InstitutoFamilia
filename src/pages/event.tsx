@@ -2,13 +2,14 @@ import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { eventMap } from '../components/Events/eventsMap';
 import Gallery from '../components/Gallery/Gallery';
+import CursoMatrimonioDescription from '../components/Events/CursoMatrimonio/cursoMatrimonioDescription';
 
 const EventPage: React.FC = () => {
   const { eventName } = useParams<{ eventName: string }>();
   const navigate = useNavigate();
 
   console.log("eventName", eventName);
-  
+
   if (!eventName) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 text-center">
@@ -45,14 +46,24 @@ const EventPage: React.FC = () => {
 
   const event = eventMap[eventName];
 
+  const renderEventInfo = () => {
+    switch (event.id) {
+      case 1:
+        return <CursoMatrimonioDescription />;
+      default:
+        return null;
+    }
+  }
+
   return (
     <div className="min-h-screen bg-gray-50 py-16">
       <div className="max-w-4xl mx-auto px-6 sm:px-8">
-        <div className="bg-white rounded-lg shadow-lg p-8">
-          <h1 className="text-4xl font-bold text-blue-800">{event.name}</h1>
-          <p className="mt-4 text-lg text-gray-700 leading-relaxed">
-            {event.description}
-          </p>
+        <div className="bg-white rounded-lg shadow-lg p-8 justify-center">
+          <h1 className="text-4xl font-bold text-blue-800 my-4 text-center mx-auto">
+            {event.name}
+          </h1>
+
+          {renderEventInfo()}
           <div className="mt-6">
             <p className="text-gray-600">
             </p>

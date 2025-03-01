@@ -1,9 +1,7 @@
 import { EventProperties } from "../../../utils/interfaces";
 
-export const cursoMatrimonioInfo : EventProperties = {
+export const cursoMatrimonioInfo: EventProperties = {
   id: 1,
-  name: 'Curso matrimonio',
-  description: 'Info matrimonio',
-  folderName: 'cimientos',
-  
-}
+  name: "CIMIENTOS DEL MATRIMONIO",
+  folderName: "cimientos",
+};

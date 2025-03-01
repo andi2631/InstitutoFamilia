@@ -9,6 +9,7 @@ const ContactUs = () => {
     name: '',
     email: '',
     message: '',
+    phoneNumber: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -25,7 +26,7 @@ const ContactUs = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setFormData({ name: '', email: '', message: '' });
+    setFormData({ name: '', email: '', message: '', phoneNumber: '' });
     setIsSubmitting(true);
 
     try {
@@ -36,13 +37,15 @@ const ContactUs = () => {
           to_email: 'acorrotti@gmail.com',
           from_name: formData.name,
           from_email: formData.email,
+          from_phoneNumber: formData.phoneNumber,
           message: formData.message,
         },
-        'zwgmP-UN6Q1MeHPnn'
+        'zwgmP-UN6Q1MeHPnn',
+
       );
 
       console.log('Email sent successfully:', result.text);
-      setFormData({ name: '', email: '', message: '' });
+      setFormData({ name: '', email: '', message: '', phoneNumber: '' });
       setSnackbarOpen(true);
     } catch (error) {
       console.error('Failed to send email:', error);
@@ -88,9 +91,27 @@ const ContactUs = () => {
               <div className="mb-4">
                 <label
                   className="block text-gray-700 text-sm font-bold mb-2"
+                  htmlFor="phoneNumber"
+                >
+                  Número de celular:
+                </label>
+                <input
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="phoneNumber"
+                  type="text"
+                  placeholder="tu número de celular"
+                  name="phoneNumber"
+                  value={formData.phoneNumber}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="mb-4">
+                <label
+                  className="block text-gray-700 text-sm font-bold mb-2"
                   htmlFor="email"
                 >
-                  Email:
+                  (Opcional) Email:
                 </label>
                 <input
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -100,7 +121,6 @@ const ContactUs = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  required
                 />
               </div>
               <div className="mb-6">
@@ -138,28 +158,36 @@ const ContactUs = () => {
           <div className="bg-white shadow-md rounded px-8 pt-6 pb-8">
             <h2 className="text-2xl font-bold mb-4">Contactos: </h2>
             <div className="space-y-4">
-              <h3 className="text-l font-bold mb-4">Curso para matrimonios "SOBRE ROCA":  </h3>
+              <h3 className="text-l font-bold mb-4">Experiencia "SOBRE ROCA":  </h3>
               <p className="flex items-center">
-                <Mail className="mr-2" size={20} />
-                info.sobreroca@familia.org.uy
+                <Mail className="mr-2" size={20} /> icf.sobreroca@gmail.com
               </p>
               <p className="flex items-center">
                 <Phone className="mr-2" size={20} />
-                +598 99 313 326
-              </p>
-              <h3 className="text-l font-bold mb-4">Curso para novios "CIMIENTOS": </h3>
-              <p className="flex items-center">
-                <Mail className="mr-2" size={20} />
-                info.cimientos@familia.org.uy
+                +598 99 313 326 - Inés Garicoïts de Ferrés
               </p>
               <p className="flex items-center">
                 <Phone className="mr-2" size={20} />
-                +598 94 363 602
+                +598 99 0454 46 - Majo Ximenez de Rachetti
               </p>
+              <h3 className="text-l font-bold mb-4">Cimientos del matrimonio: </h3>
+              <p className="flex items-center">
+                <Mail className="mr-2" size={20} />
+                cienciasfamiliares@gmail.com
+              </p>
+              <p className="flex items-center">
+                <Phone className="mr-2" size={20} />
+                +598 94 363 602 - Mónica Regules
+              </p>
+              <p className="flex items-center">
+                <Phone className="mr-2" size={20} />
+                +598 92 023 465 - María Noel
+              </p>
+              
               <h3 className="text-l font-bold mb-4">Contacto general ICF: </h3>
               <p className="flex items-center">
                 <Mail className="mr-2" size={20} />
-                icfuruguay@gmail.com  -  info@familia.org.uy
+                icfuruguay@gmail.com 
               </p>
               <p className="flex items-center">
                <b>“El que escucha mis Palabras y las practica, se parece a un hombre que queriendo construir una casa, cavó profundamente y puso los cimientos sobre la Roca”</b> 

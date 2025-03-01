@@ -21,15 +21,15 @@ const EventGallery = () => {
   const events: EventData[] = [
     {
       src: "https://instituto-familia-s3.s3.us-west-2.amazonaws.com/Cimientos_flyer.jpeg",
-      alt: "Curso: Matrimonio",
-      eventName: "Curso: Cimientos",
+      alt: "",
+      eventName: "Ciminentos del Matrimonio",
       id: 2,
       path: "cimientos",
     },
     {
-      src: "https://via.placeholder.com/500x750?text=Flyer+no+disponible", // Placeholder si no hay imagen
-      alt: "Curso: Sobre Rocas",
-      eventName: "Sobre Rocas",
+      src: "https://via.placeholder.com/500x750?text=Flyer+no+disponible", 
+      alt: "",
+      eventName: "Sobre Roca",
       id: 1,
       path: "sobreRocas",
     },
@@ -39,7 +39,7 @@ const EventGallery = () => {
     <section id="gallery" className="py-16 bg-gray-100">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl font-extrabold text-gray-800 text-center mb-10">
-          Próximos Cursos
+          Nuestras actividades:
         </h2>
         
         {/* Contenedor de eventos en fila */}

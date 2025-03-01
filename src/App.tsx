@@ -12,6 +12,7 @@ import 'aos/dist/aos.css';
 import AOS from 'aos';
 import EventPage from './pages/event';
 import MainGallery from './pages/MainGallery';
+import ScrollToTop from './utils/scrollToTop';
 
 function App() {
 
@@ -24,9 +25,9 @@ function App() {
 
   return (
     <Router>
+      <ScrollToTop />
       <div className="min-h-screen bg-gray-100">
         <Navbar />
-
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/info" element={<AntecedentesMagisterio />} />
