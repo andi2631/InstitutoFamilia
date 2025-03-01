@@ -35,7 +35,6 @@ function App() {
           <Route path="/contact" element={<ContactUs />} />
 
         <Route path="/events/:eventName" element={<EventPage />} />
-          <></>
         </Routes>
 
         <footer className="bg-gray-800 text-white py-6">
