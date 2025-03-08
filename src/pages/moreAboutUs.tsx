@@ -51,7 +51,12 @@ const AntecedentesMagisterio = () => {
 
         <div className="bg-white shadow-lg rounded-lg p-8 sm:p-10 mb-4">
         <div className="mt-1 text-lg text-gray-800 leading-relaxed space-y-6">
-            <p>Para responder al llamado de la Humanae Vitae y de la Familiaris Consortio, que en su numeral 35 exhorta a la comunidad eclesial a “suscitar convicciones y ofrecer ayudas concretas a quienes desean vivir la paternidad y maternidad de manera verdaderamente responsable”, el Padre Pedro fundó diversas iniciativas, como el  CENAPLANF, (Centro Nacional de Planificación Natural de la Familia), integrándose al concierto internacional de instituciones afines y contribuyó al esfuerzo global en la protección de los valores matrimoniales, así como en la difusión y enseñanza de los Métodos Naturales.  </p>
+            <p>Para responder al llamado de la <a href="https://www.vatican.va/content/paul-vi/es/encyclicals/documents/hf_p-vi_enc_25071968_humanae-vitae.html" className="text-blue-600 underline inline">
+                Humanae Vitae
+              </a> y el{" "}
+              <a href="https://www.vatican.va/content/john-paul-ii/es/apost_exhortations/documents/hf_jp-ii_exh_19811122_familiaris-consortio.html" className="text-blue-600 underline inline">
+                Familiaris Consortio
+              </a>, que en su numeral 35 exhorta a la comunidad eclesial a “suscitar convicciones y ofrecer ayudas concretas a quienes desean vivir la paternidad y maternidad de manera verdaderamente responsable”, el Padre Pedro fundó diversas iniciativas, como el  CENAPLANF, (Centro Nacional de Planificación Natural de la Familia), integrándose al concierto internacional de instituciones afines y contribuyó al esfuerzo global en la protección de los valores matrimoniales, así como en la difusión y enseñanza de los Métodos Naturales.  </p>
           </div>
             
         </div>
@@ -60,8 +65,7 @@ const AntecedentesMagisterio = () => {
         <ul className="mt-6 bg-gray-50 p-6 rounded-lg shadow-md text-lg text-gray-800 space-y-4">
           <li className="flex items-start">
             <span className="text-blue-500 font-bold mr-2">•</span>
-            Promover la dignidad de la vida humana desde el mismo momento de la concepción hasta su muerte natural, según las enseñanzas del Magisterio de la Iglesia Católica.
-          </li>
+            Promover la dignidad de la vida humana desde el mismo momento de la concepción hasta su muerte natural.           </li>
           <li className="flex items-start">
             <span className="text-blue-500 font-bold mr-2">•</span>
             Impartir conocimientos integrales sobre la transmisión de la Vida Humana con base en las normas teológicas y morales de la Iglesia Católica Apostólica Romana. La ortodoxia papal es la Roca sobre la cual ha de apoyarse.
