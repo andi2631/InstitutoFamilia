@@ -62,7 +62,6 @@ const EventPage: React.FC = () => {
           <h1 className="text-4xl font-bold text-blue-800 my-4 text-center mx-auto">
             {event.name}
           </h1>
-
           {renderEventInfo()}
           <div className="mt-6">
             <p className="text-gray-600">
