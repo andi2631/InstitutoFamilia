@@ -20,7 +20,7 @@ const EventGallery = () => {
 
   const events: EventData[] = [
     {
-      src: "https://instituto-familia-s3.s3.us-west-2.amazonaws.com/Cimientos_flyer.jpeg",
+      src: "/logos/Cimientos_flyer.jpeg",
       alt: "",
       eventName: "Cimientos del Matrimonio",
       id: 2,

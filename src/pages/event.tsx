@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { eventMap } from '../components/Events/eventsMap';
 import Gallery from '../components/Gallery/Gallery';
 import CursoMatrimonioDescription from '../components/Events/CursoMatrimonio/cursoMatrimonioDescription';
+import SobreRocasDescription from '../components/Events/SobreRocas/sobreRocasDescription';
 
 const EventPage: React.FC = () => {
   const { eventName } = useParams<{ eventName: string }>();
@@ -51,7 +52,9 @@ const EventPage: React.FC = () => {
       case 1:
         return <CursoMatrimonioDescription />;
       default:
-        return null;
+      case 2:
+         return <SobreRocasDescription/>
+      return null;
     }
   }
 

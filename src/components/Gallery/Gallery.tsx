@@ -1,7 +1,7 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import { GalleryProps, listMediaFromFolder, MediaFile } from "./utils/s3";
+import { GalleryProps, listMediaFromFolder, MediaFile } from "./utils/getPhotos";
 import MediaComponent from "./MediaComponent";
 import { useEffect, useState, useRef } from "react";
 
@@ -12,9 +12,9 @@ const Gallery: React.FC<GalleryProps> = ({ eventName }) => {
   const sliderRef = useRef<Slider | null>(null);
 
   useEffect(() => {
-    const fetchMedia = async () => {
+    const fetchMedia = () => {
       try {
-        const media = await listMediaFromFolder(eventName);
+        const media = listMediaFromFolder(eventName);
         setMediaFiles(media);
       } catch (error) {
         console.error("Error al cargar archivos multimedia:", error);
