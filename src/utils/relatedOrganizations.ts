@@ -4,7 +4,7 @@ interface Organization {
   link: string;
 }
 
-export const RELATED_ONG: Organization[] = [
+export const RELATED_ONGS: Organization[] = [
   {
     imageUrl: "https://via.placeholder.com/150",
     name: "Organización 1",

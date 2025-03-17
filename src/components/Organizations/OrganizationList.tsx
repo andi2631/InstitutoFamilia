@@ -1,8 +1,8 @@
 import React from "react";
 import OrganizationCard from "./OrgCard";
-import { RELATED_ONG } from "../../utils/relatedOrganizations";
+import { RELATED_ONGS } from "../../utils/relatedOrganizations";
 
-const relatedOrganizationsList = RELATED_ONG;
+const relatedOrganizationsList = RELATED_ONGS;
 
 
 const OrganizationList: React.FC = () => {
