@@ -17,11 +17,12 @@ const OrganizationCard: React.FC<OrganizationCardProps> = ({ imageUrl, name, lin
       <img
         src={imageUrl}
         alt={name}
-        className="w-full h-32 object-cover"
+        className="w-full h-32 object-fill"
       />
-      <div className="p-2 bg-gray-100 text-center">
+      <div className="p-2 bg-gray-100 text-center h-12 flex items-center justify-center">
         {name}
       </div>
+
     </a>
   );
 };
