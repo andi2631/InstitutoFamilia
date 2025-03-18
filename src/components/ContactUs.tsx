@@ -252,19 +252,12 @@ const ContactUs = () => {
                 onClick={() => toggleSection("contactoICF")}
               >
                 Contacto general ICF
-                {expandedSections.contactoICF ? (
-                  <ChevronUp className="ml-2" />
-                ) : (
-                  <ChevronDown className="ml-2" />
-                )}
               </h3>
-              {expandedSections.contactoICF && (
-                <div className="pl-4 mt-2">
-                  <p className="flex items-center">
-                    <Mail className="mr-2" size={20} /> icfuruguay@gmail.com
-                  </p>
-                </div>
-              )}
+              <div className="mt-2">
+                <p className="flex items-center">
+                  <Mail className="mr-2" size={20} /> icfuruguay@gmail.com
+                </p>
+              </div>
               <p className="absolute bottom-5 mr-8">
                 <em>
                   “El que escucha mis Palabras y las practica, se parece a un
