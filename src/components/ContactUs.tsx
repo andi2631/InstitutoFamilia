@@ -7,7 +7,6 @@ import OrganizationList from "./Organizations/OrganizationList";
 interface ExpandedSections {
   sobreRoca: boolean;
   cimientosMatrimonio: boolean;
-  contactoICF: boolean;
 }
 
 const ContactUs = () => {
@@ -20,9 +19,8 @@ const ContactUs = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const [expandedSections, setExpandedSections] = useState<ExpandedSections>({
-    sobreRoca: false,
-    cimientosMatrimonio: false,
-    contactoICF: false,
+    sobreRoca: true,
+    cimientosMatrimonio: true,
   });
 
   const toggleSection = (section: keyof ExpandedSections) => {
@@ -90,7 +88,7 @@ const ContactUs = () => {
           className="grid grid-cols-1 md:grid-cols-2 gap-8"
           data-aos="zoom-in"
         >
-          <div className="bg-white shadow-md rounded px-8 pt-6 pb-8">
+          <div className="bg-white shadow-md rounded px-8 pt-0 pb-0">
             <form
               onSubmit={handleSubmit}
               className="bg-white px-8 pt-6 pb-8 mb-4"
@@ -183,86 +181,90 @@ const ContactUs = () => {
               handleClose={handleCloseSnackbar}
             />
           </div>
-
-          <div className="bg-white shadow-md rounded px-8 pt-6 pb-8">
-            <h2 className="text-2xl font-bold mb-4">Contactos:</h2>
-            {/* Experiencia "SOBRE ROCA" */}
-            <div>
-              <h3
-                className="text-lg font-bold flex items-center cursor-pointer"
-                onClick={() => toggleSection("sobreRoca")}
-              >
-                Experiencia "SOBRE ROCA"
-                {expandedSections.sobreRoca ? (
-                  <ChevronUp className="ml-2" />
-                ) : (
-                  <ChevronDown className="ml-2" />
+          <div>
+            <div className="bg-white shadow-md rounded px-8 pt-6 pb-10">
+              <h2 className="text-2xl font-bold mb-4">Contactos:</h2>
+              {/* Experiencia "SOBRE ROCA" */}
+              <div>
+                <h3
+                  className="text-xl font-bold flex items-center cursor-pointer"
+                  onClick={() => toggleSection("sobreRoca")}
+                >
+                  Experiencia "SOBRE ROCA":
+                  {expandedSections.sobreRoca ? (
+                    <ChevronUp className="ml-2" />
+                  ) : (
+                    <ChevronDown className="ml-2" />
+                  )}
+                </h3>
+                {expandedSections.sobreRoca && (
+                  <div className="pl-4 mt-2 space-y-2">
+                    <p className="flex items-center">
+                      <Mail className="mr-2" size={20} />{" "}
+                      icf.sobreroca@gmail.com
+                    </p>
+                    <p className="flex items-center">
+                      <Phone className="mr-2" size={20} /> +598 99 313 326 -
+                      Inés Garicoïts de Ferrés
+                    </p>
+                    <p className="flex items-center">
+                      <Phone className="mr-2" size={20} /> +598 99 0454 46 -
+                      Majo Ximenez de Rachetti
+                    </p>
+                  </div>
                 )}
-              </h3>
-              {expandedSections.sobreRoca && (
-                <div className="pl-4 mt-2 space-y-2">
-                  <p className="flex items-center">
-                    <Mail className="mr-2" size={20} /> icf.sobreroca@gmail.com
-                  </p>
-                  <p className="flex items-center">
-                    <Phone className="mr-2" size={20} /> +598 99 313 326 - Inés
-                    Garicoïts de Ferrés
-                  </p>
-                  <p className="flex items-center">
-                    <Phone className="mr-2" size={20} /> +598 99 0454 46 - Majo
-                    Ximenez de Rachetti
-                  </p>
-                </div>
-              )}
-            </div>
-            {/* Cimientos del matrimonio */}
-            <div className="mt-4">
-              <h3
-                className="text-lg font-bold flex items-center cursor-pointer"
-                onClick={() => toggleSection("cimientosMatrimonio")}
-              >
-                Cimientos del matrimonio
-                {expandedSections.cimientosMatrimonio ? (
-                  <ChevronUp className="ml-2" />
-                ) : (
-                  <ChevronDown className="ml-2" />
-                )}
-              </h3>
-              {expandedSections.cimientosMatrimonio && (
-                <div className="pl-4 mt-2 space-y-2">
-                  <p className="flex items-center">
-                    <Mail className="mr-2" size={20} />{" "}
-                    cienciasfamiliares@gmail.com
-                  </p>
-                  <p className="flex items-center">
-                    <Phone className="mr-2" size={20} /> +598 94 363 602 -
-                    Mónica Regules
-                  </p>
-                  <p className="flex items-center">
-                    <Phone className="mr-2" size={20} /> +598 92 023 465 - María
-                    Noel
-                  </p>
-                </div>
-              )}
-            </div>
-            {/* Contacto general ICF */}
-            <div className="mt-4">
-              <h3
-                className="text-lg font-bold flex items-center cursor-pointer"
-                onClick={() => toggleSection("contactoICF")}
-              >
-                Contacto general ICF
-              </h3>
-              <div className="mt-2">
-                <p className="flex items-center">
-                  <Mail className="mr-2" size={20} /> icfuruguay@gmail.com
-                </p>
               </div>
-              <p className="absolute bottom-5 mr-8">
+              {/* Cimientos del matrimonio */}
+              <div className="mt-4">
+                <h3
+                  className="text-xl font-bold flex items-center cursor-pointer"
+                  onClick={() => toggleSection("cimientosMatrimonio")}
+                >
+                  Cimientos del matrimonio:
+                  {expandedSections.cimientosMatrimonio ? (
+                    <ChevronUp className="ml-2" />
+                  ) : (
+                    <ChevronDown className="ml-2" />
+                  )}
+                </h3>
+                {expandedSections.cimientosMatrimonio && (
+                  <div className="pl-4 mt-2 space-y-2">
+                    <p className="flex items-center">
+                      <Mail className="mr-2" size={20} />{" "}
+                      cienciasfamiliares@gmail.com
+                    </p>
+                    <p className="flex items-center">
+                      <Phone className="mr-2" size={20} /> +598 94 363 602 -
+                      Mónica Regules
+                    </p>
+                    <p className="flex items-center">
+                      <Phone className="mr-2" size={20} /> +598 92 023 465 -
+                      María Noel
+                    </p>
+                  </div>
+                )}
+              </div>
+              {/* Contacto general ICF */}
+              <div className="mt-4">
+                <h3
+                  className="text-xl font-bold flex items-center cursor-pointer"
+                  onClick={() => toggleSection("contactoICF")}
+                >
+                  Contacto general ICF:
+                </h3>
+                <div className="mt-2">
+                  <p className="flex items-center">
+                    <Mail className="mr-2" size={20} /> icfuruguay@gmail.com
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="bg-white shadow-md rounded px-8 pt-6 pb-6 mt-10">
+              <p className="text-xl border-l-4 border-blue-400 pl-4">
                 <em>
                   “El que escucha mis Palabras y las practica, se parece a un
                   hombre que queriendo construir una casa, cavó profundamente y
-                  puso los cimientos sobre la Roca”
+                  puso los cimientos sobre la Roca” Lc 6:47-49.
                 </em>
               </p>
             </div>
