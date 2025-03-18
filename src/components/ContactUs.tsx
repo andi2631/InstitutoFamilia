@@ -246,12 +246,7 @@ const ContactUs = () => {
               </div>
               {/* Contacto general ICF */}
               <div className="mt-4">
-                <h3
-                  className="text-xl font-bold flex items-center cursor-pointer"
-                  onClick={() => toggleSection("contactoICF")}
-                >
-                  Contacto general ICF:
-                </h3>
+                <h3 className="text-xl font-bold">Contacto general ICF:</h3>
                 <div className="mt-2">
                   <p className="flex items-center">
                     <Mail className="mr-2" size={20} /> icfuruguay@gmail.com
