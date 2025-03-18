@@ -1,13 +1,8 @@
 import React, { useState } from "react";
-import { ChevronDown, ChevronUp, Mail, Phone } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import TransitionsSnackbar from "./SnackBar";
 import emailjs from "@emailjs/browser";
 import OrganizationList from "./Organizations/OrganizationList";
-
-interface ExpandedSections {
-  sobreRoca: boolean;
-  cimientosMatrimonio: boolean;
-}
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -17,18 +12,6 @@ const ContactUs = () => {
     phoneNumber: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const [expandedSections, setExpandedSections] = useState<ExpandedSections>({
-    sobreRoca: true,
-    cimientosMatrimonio: true,
-  });
-
-  const toggleSection = (section: keyof ExpandedSections) => {
-    setExpandedSections((prevState) => ({
-      ...prevState,
-      [section]: !prevState[section],
-    }));
-  };
 
   const [snackbarOpen, setSnackbarOpen] = useState(false);
 
@@ -76,87 +59,91 @@ const ContactUs = () => {
   };
 
   return (
-    <section id="contact" className="py-16 bg-gray-50 font-lexend">
+    <section
+      id="contact"
+      className="py-16 bg-gradient-to-b from-blue-50 to-gray-100 font-lexend"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2
-          className="text-3xl font-extrabold text-gray-900 sm:text-4xl mb-8"
-          data-aos="zoom-in"
+          className="text-4xl font-extrabold text-gray-800 text-center mb-12"
+          data-aos="fade-up"
         >
           ¡Contáctanos!
         </h2>
         <div
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
-          data-aos="zoom-in"
+          className="grid grid-cols-1 md:grid-cols-2 gap-12"
+          data-aos="fade-up"
         >
-          <div className="bg-white shadow-md rounded px-8 pt-0 pb-0">
-            <form
-              onSubmit={handleSubmit}
-              className="bg-white px-8 pt-6 pb-8 mb-4"
-            >
-              <div className="mb-4">
+          {/* Formulario */}
+          <div className="bg-white shadow-lg rounded-lg p-10">
+            <h3 className="text-2xl font-bold text-gray-800 mb-6">
+              Envíanos un mensaje
+            </h3>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
                 <label
-                  className="block text-gray-700 text-sm font-bold mb-2"
+                  className="block text-gray-700 font-medium mb-2"
                   htmlFor="name"
                 >
                   Nombre:
                 </label>
                 <input
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
                   id="name"
                   type="text"
-                  placeholder="Nombre..."
+                  placeholder="Tu nombre"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
                   required
                 />
               </div>
-              <div className="mb-4">
+              <div>
                 <label
-                  className="block text-gray-700 text-sm font-bold mb-2"
+                  className="block text-gray-700 font-medium mb-2"
                   htmlFor="phoneNumber"
                 >
                   Número de celular:
                 </label>
                 <input
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
                   id="phoneNumber"
                   type="text"
-                  placeholder="tu número de celular"
+                  placeholder="Tu número de celular"
                   name="phoneNumber"
                   value={formData.phoneNumber}
                   onChange={handleChange}
                   required
                 />
               </div>
-              <div className="mb-4">
+              <div>
                 <label
-                  className="block text-gray-700 text-sm font-bold mb-2"
+                  className="block text-gray-700 font-medium mb-2"
                   htmlFor="email"
                 >
                   (Opcional) Email:
                 </label>
                 <input
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
                   id="email"
                   type="email"
-                  placeholder="tu@email.com"
+                  placeholder="Tu correo electrónico"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
                 />
               </div>
-              <div className="mb-6">
+              <div>
                 <label
-                  className="block text-gray-700 text-sm font-bold mb-2"
+                  className="block text-gray-700 font-medium mb-2"
                   htmlFor="message"
                 >
                   Mensaje:
                 </label>
                 <textarea
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
                   id="message"
-                  placeholder="Escibe tu mensaje aquí..."
+                  placeholder="Escribe tu mensaje aquí..."
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
@@ -164,102 +151,95 @@ const ContactUs = () => {
                   rows={4}
                 ></textarea>
               </div>
-              <div className="flex items-center justify-between">
-                <button
-                  className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${
-                    isSubmitting ? "opacity-50 cursor-not-allowed" : ""
-                  }`}
-                  type="submit"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? "Enviando..." : "Enviar mensaje"}
-                </button>
-              </div>
+              <button
+                className={`w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 transition ${
+                  isSubmitting ? "opacity-50 cursor-not-allowed" : ""
+                }`}
+                type="submit"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Enviando..." : "Enviar mensaje"}
+              </button>
             </form>
             <TransitionsSnackbar
               open={snackbarOpen}
               handleClose={handleCloseSnackbar}
             />
           </div>
-          <div>
-            <div className="bg-white shadow-md rounded px-8 pt-6 pb-10">
-              <h2 className="text-2xl font-bold mb-4">Contactos:</h2>
-              {/* Experiencia "SOBRE ROCA" */}
-              <div>
-                <h3
-                  className="text-xl font-bold flex items-center cursor-pointer"
-                  onClick={() => toggleSection("sobreRoca")}
-                >
-                  Experiencia "SOBRE ROCA":
-                  {expandedSections.sobreRoca ? (
-                    <ChevronUp className="ml-2" />
-                  ) : (
-                    <ChevronDown className="ml-2" />
-                  )}
-                </h3>
-                {expandedSections.sobreRoca && (
-                  <div className="pl-4 mt-2 space-y-2">
-                    <p className="flex items-center">
-                      <Mail className="mr-2" size={20} />{" "}
-                      icf.sobreroca@gmail.com
-                    </p>
-                    <p className="flex items-center">
-                      <Phone className="mr-2" size={20} /> +598 99 313 326 -
-                      Inés Garicoïts de Ferrés
-                    </p>
-                    <p className="flex items-center">
-                      <Phone className="mr-2" size={20} /> +598 99 0454 46 -
-                      Majo Ximenez de Rachetti
-                    </p>
-                  </div>
-                )}
+
+          {/* Información de contacto */}
+          <div className="space-y-8">
+            {/* Información general del ICF */}
+            <div className="bg-white shadow-lg rounded-lg p-8">
+              <h3 className="text-2xl text-blue-800 mb-4">Contacto General</h3>
+              <div className="flex items-center space-x-4 mb-4">
+                <Mail className="text-blue-500" size={30} />
+                <p className="text-lg text-gray-700">icf.general@gmail.com</p>
               </div>
-              {/* Cimientos del matrimonio */}
-              <div className="mt-4">
-                <h3
-                  className="text-xl font-bold flex items-center cursor-pointer"
-                  onClick={() => toggleSection("cimientosMatrimonio")}
-                >
-                  Cimientos del matrimonio:
-                  {expandedSections.cimientosMatrimonio ? (
-                    <ChevronUp className="ml-2" />
-                  ) : (
-                    <ChevronDown className="ml-2" />
-                  )}
-                </h3>
-                {expandedSections.cimientosMatrimonio && (
-                  <div className="pl-4 mt-2 space-y-2">
-                    <p className="flex items-center">
-                      <Mail className="mr-2" size={20} />{" "}
-                      cienciasfamiliares@gmail.com
-                    </p>
-                    <p className="flex items-center">
-                      <Phone className="mr-2" size={20} /> +598 94 363 602 -
-                      Mónica Regules
-                    </p>
-                    <p className="flex items-center">
-                      <Phone className="mr-2" size={20} /> +598 92 023 465 -
-                      María Noel
-                    </p>
-                  </div>
-                )}
-              </div>
-              {/* Contacto general ICF */}
-              <div className="mt-4">
-                <h3 className="text-xl font-bold">Contacto general ICF:</h3>
-                <div className="mt-2">
-                  <p className="flex items-center">
-                    <Mail className="mr-2" size={20} /> icfuruguay@gmail.com
+            </div>
+
+            {/* Experiencia "SOBRE ROCA" */}
+            <div className="bg-white shadow-lg rounded-lg p-8">
+              <h3 className="text-2xl text-blue-800 mb-4">
+                Experiencia "Sobre Roca"
+              </h3>
+              <div className="space-y-4">
+                <div className="flex items-center space-x-4">
+                  <Mail className="text-blue-500" size={30} />
+                  <p className="text-lg text-gray-700">
+                    icf.sobreroca@gmail.com
+                  </p>
+                </div>
+                <div className="flex items-center space-x-4">
+                  <Phone className="text-blue-500" size={30} />
+                  <p className="text-lg text-gray-700">
+                    099 313 326 (Inés Garicoïts de Ferrés)
+                  </p>
+                </div>
+                <div className="flex items-center space-x-4">
+                  <Phone className="text-blue-500" size={30} />
+                  <p className="text-lg text-gray-700">
+                    099 045 446 (Majo Ximenez de Rachetti)
                   </p>
                 </div>
               </div>
             </div>
-            <div className="bg-white shadow-md rounded px-8 pt-6 pb-6 mt-10">
-              <p className="text-xl border-l-4 border-blue-400 pl-4">
+
+            {/* Cimientos del Matrimonio */}
+            <div className="bg-white shadow-lg rounded-lg p-8">
+              <h3 className="text-2xl text-blue-800 mb-4">
+                Cimientos del Matrimonio
+              </h3>
+              <div className="space-y-4">
+                <div className="flex items-center space-x-4">
+                  <Mail className="text-blue-500" size={30} />
+                  <p className="text-lg text-gray-700">
+                    cienciasfamiliares@gmail.com
+                  </p>
+                </div>
+                <div className="flex items-center space-x-4">
+                  <Phone className="text-blue-500" size={30} />
+                  <p className="text-lg text-gray-700">
+                    094 363 602 (Mónica Regules)
+                  </p>
+                </div>
+                <div className="flex items-center space-x-4">
+                  <Phone className="text-blue-500" size={30} />
+                  <p className="text-lg text-gray-700">
+                    092 023 465 (María Noel)
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Frase inspiradora */}
+            <div className="bg-white shadow-lg rounded-lg p-8">
+              <p className="text-lg text-gray-700 border-l-4 border-blue-500 pl-4">
                 <em>
                   “El que escucha mis Palabras y las practica, se parece a un
                   hombre que queriendo construir una casa, cavó profundamente y
-                  puso los cimientos sobre la Roca” Lc 6:47-49.
+                  puso los cimientos sobre la Roca” <br />
+                  <b> Lc 6: 47-49 </b>
                 </em>
               </p>
             </div>
