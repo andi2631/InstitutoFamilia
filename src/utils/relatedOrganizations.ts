@@ -18,16 +18,16 @@ export const RELATED_ONGS: Organization[] = [
   {
     imageUrl: "/orgs/familia_de_las_americas.png",
     name: "Familia de las Américas",
-    link: "https://example.com/organization3",
+    link: "www.familiadelasamericas.org",
   },
   {
     imageUrl: "/orgs/ivaf.png",
     name: "IVAF",
-    link: "https://example.com/organization3",
+    link: "https://ivaf.org/",
   },
   {
     imageUrl: "/orgs/UCA_logo.png",
     name: "UCA",
-    link: "https://example.com/organization3",
+    link: "https://uca.edu.ar/es/home",
   },
 ];

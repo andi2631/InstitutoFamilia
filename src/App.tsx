@@ -11,8 +11,8 @@ import 'aos/dist/aos.css';
 
 import AOS from 'aos';
 import EventPage from './pages/event';
-import MainGallery from './pages/MainGallery';
 import ScrollToTop from './utils/scrollToTop';
+import ArticlesPage from './pages/articlesPage';
 
 function App() {
 
@@ -31,7 +31,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/info" element={<AntecedentesMagisterio />} />
-          <Route path="/galeria" element={<MainGallery />} />
+          <Route path="/articulos" element={<ArticlesPage />} />
           <Route path="/contact" element={<ContactUs />} />
 
         <Route path="/events/:eventName" element={<EventPage />} />

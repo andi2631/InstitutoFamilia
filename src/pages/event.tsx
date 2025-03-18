@@ -4,6 +4,7 @@ import { eventMap } from '../components/Events/eventsMap';
 import Gallery from '../components/Gallery/Gallery';
 import CursoMatrimonioDescription from '../components/Events/CursoMatrimonio/cursoMatrimonioDescription';
 import SobreRocasDescription from '../components/Events/SobreRocas/sobreRocasDescription';
+import MetodosNaturalesDescription from '../components/Events/Fertilidad/fertilidadDescription';
 
 const EventPage: React.FC = () => {
   const { eventName } = useParams<{ eventName: string }>();
@@ -27,7 +28,7 @@ const EventPage: React.FC = () => {
     );
   }
 
-  const validEventIds = ["sobreRocas", "cimientos"];
+  const validEventIds = ["sobreRocas", "cimientos", "reconocimientoFertilidad"];
   if (!validEventIds.includes(eventName)) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 text-center">
@@ -54,6 +55,8 @@ const EventPage: React.FC = () => {
       default:
       case 2:
          return <SobreRocasDescription/>
+      case 3:
+          return <MetodosNaturalesDescription/>
       return null;
     }
   }

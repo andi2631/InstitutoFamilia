@@ -63,10 +63,10 @@ const Navbar = () => {
                 Contáctanos
               </a>
               <a
-                onClick={() => handleNavigation('/galeria')}
+                onClick={() => handleNavigation('/articulos')}
                 className="relative text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-lexend transition duration-300 ease transform hover:scale-105 hover:bg-gray-200 cursor-pointer"
               >
-                Galería
+                Artículos de interés
               </a>
             </div>
           </div>

@@ -12,7 +12,7 @@ const OrganizationCard: React.FC<OrganizationCardProps> = ({ imageUrl, name, lin
       href={link}
       target="_blank"
       rel="noopener noreferrer"
-      className="block w-48 shadow-md rounded overflow-hidden"
+      className="block w-48 shadow-md rounded overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-lg"
     >
       <img
         src={imageUrl}

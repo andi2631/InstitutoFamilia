@@ -27,23 +27,30 @@ const EventGallery = () => {
       path: "cimientos",
     },
     {
-      src: "https://via.placeholder.com/500x750?text=Flyer+no+disponible", 
+      src: "https://via.placeholder.com/500x750?text=Flyer+no+disponible",
       alt: "",
       eventName: "Sobre Roca",
       id: 1,
       path: "sobreRocas",
     },
+    {
+      src: "https://via.placeholder.com/500x750?text=Flyer+no+disponible",
+      alt: "",
+      eventName: "Curso de Fertilidad",
+      id: 3,
+      path: "reconocimientoFertilidad",
+    }
   ];
 
   return (
-    <section id="gallery" className="py-10 bg-gray-100">
+    <section data-aos="zoom-in" id="gallery" className="py-10 bg-gray-100">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl font-lexend-bold text-gray-800 text-center mb-5 ">
           Nuestras actividades:
         </h2>
-        
+
         {/* Contenedor de eventos en fila */}
-        <div className="flex flex-wrap justify-center gap-8">
+        <div className="flex flex-nowrap justify-center gap-8 overflow-x-auto">
           {events.map((event, index) => (
             <EventComponent
               key={index}
