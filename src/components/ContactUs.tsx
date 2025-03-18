@@ -265,7 +265,7 @@ const ContactUs = () => {
                   </p>
                 </div>
               )}
-              <p className="font-semibold absolute bottom-5 mr-8">
+              <p className="absolute bottom-5 mr-8">
                 <em>
                   “El que escucha mis Palabras y las practica, se parece a un
                   hombre que queriendo construir una casa, cavó profundamente y
