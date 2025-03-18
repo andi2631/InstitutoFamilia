@@ -268,8 +268,8 @@ const ContactUs = () => {
             </div>
           </div>
         </div>
+        <OrganizationList />
       </div>
-      <OrganizationList />
     </section>
   );
 };
