@@ -115,7 +115,7 @@ const AntecedentesMagisterio = () => {
         <h3 className="text-3xl font-bold text-center text-blue-800 mt-12 mb-4 sm:text-4xl">
           Características del Instituto de Ciencias Familiares
         </h3>
-        <ul className="mt-6 bg-gray-50 p-6 rounded-lg shadow-md text-lg text-gray-800 space-y-4">
+        <ul className="mt-6 bg-white p-6 rounded-lg shadow-md text-lg text-gray-800 space-y-4">
           <li className="flex items-start">
             <span className="text-blue-500 font-bold mr-2">•</span>
             Promover la dignidad de la vida humana desde el mismo momento de la

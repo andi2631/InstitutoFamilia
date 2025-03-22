@@ -34,9 +34,9 @@ const EventGallery = () => {
       path: "sobreRocas",
     },
     {
-      src: "https://via.placeholder.com/500x750?text=Flyer+no+disponible",
+      src: "/logos/flyer_fertilidad.jpg",
       alt: "",
-      eventName: "Curso de Fertilidad",
+      eventName: "Reconocimiento de Fertilidad",
       id: 3,
       path: "reconocimientoFertilidad",
     },

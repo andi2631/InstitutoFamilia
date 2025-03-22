@@ -75,7 +75,8 @@ const ContactUs = () => {
           data-aos="fade-up"
         >
           {/* Formulario */}
-          <div className="bg-white shadow-lg rounded-lg p-10">
+          <div className="bg-white shadow-lg rounded-lg p-10"
+            data-aos="fade-right">
             <h3 className="text-2xl font-bold text-gray-800 mb-6">
               Envíanos un mensaje
             </h3>
@@ -152,9 +153,8 @@ const ContactUs = () => {
                 ></textarea>
               </div>
               <button
-                className={`w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 transition ${
-                  isSubmitting ? "opacity-50 cursor-not-allowed" : ""
-                }`}
+                className={`w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 transition ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""
+                  }`}
                 type="submit"
                 disabled={isSubmitting}
               >
@@ -165,12 +165,21 @@ const ContactUs = () => {
               open={snackbarOpen}
               handleClose={handleCloseSnackbar}
             />
+            <div className="mt-12">
+              <img
+                src="logos_icf/Instituto de Ciencias Familiares-28.png"
+                alt="ICF"
+                className="my-auto p mx-auto w-80 h-auto"
+              />
+            </div>
           </div>
 
           {/* Información de contacto */}
           <div className="space-y-8">
             {/* Información general del ICF */}
-            <div className="bg-white shadow-lg rounded-lg p-8">
+            <div className="bg-white shadow-lg rounded-lg p-8"
+              data-aos="fade-left"
+            >
               <h3 className="text-2xl text-blue-800 mb-4">Contacto General</h3>
               <div className="flex items-center space-x-4 mb-4">
                 <Mail className="text-blue-500" size={30} />
@@ -179,7 +188,8 @@ const ContactUs = () => {
             </div>
 
             {/* Experiencia "SOBRE ROCA" */}
-            <div className="bg-white shadow-lg rounded-lg p-8">
+            <div className="bg-white shadow-lg rounded-lg p-8"
+              data-aos="fade-left">
               <h3 className="text-2xl text-blue-800 mb-4">
                 Experiencia "Sobre Roca"
               </h3>
@@ -206,7 +216,8 @@ const ContactUs = () => {
             </div>
 
             {/* Cimientos del Matrimonio */}
-            <div className="bg-white shadow-lg rounded-lg p-8">
+            <div className="bg-white shadow-lg rounded-lg p-8"
+              data-aos="fade-left">
               <h3 className="text-2xl text-blue-800 mb-4">
                 Cimientos del Matrimonio
               </h3>
@@ -233,7 +244,8 @@ const ContactUs = () => {
             </div>
 
             {/* Frase inspiradora */}
-            <div className="bg-white shadow-lg rounded-lg p-8">
+            <div className="bg-white shadow-lg rounded-lg p-8"
+              data-aos="fade-left">
               <p className="text-lg text-gray-700 border-l-4 border-blue-500 pl-4">
                 <em>
                   “El que escucha mis Palabras y las practica, se parece a un
