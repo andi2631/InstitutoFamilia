@@ -14,7 +14,7 @@ const CursoMatrimonioDescription: React.FC = () => {
         para ayudar a las parejas a construir una base firme antes del
         matrimonio. A través de la guía de profesionales de diversas áreas,
         abordamos temas clave para fortalecer la relación y prepararse para una
-        vida en pareja basada en el amor y el compromiso.
+        vida matrimonial basada en el amor mutuo, en la entrega sin medida y por sobre todo en la unión con Dios.
       </p>
 
       <h3 className="text-xl font-semibold my-4">
