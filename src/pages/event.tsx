@@ -54,10 +54,10 @@ const EventPage: React.FC = () => {
         return <CursoMatrimonioDescription />;
       default:
       case 2:
-         return <SobreRocasDescription/>
+        return <SobreRocasDescription />
       case 3:
-          return <MetodosNaturalesDescription/>
-      return null;
+        return <MetodosNaturalesDescription />
+        return null;
     }
   }
 
@@ -73,9 +73,11 @@ const EventPage: React.FC = () => {
             <p className="text-gray-600">
             </p>
           </div>
-          <div className="flex flex-col items-center gap-8">
-            <Gallery eventName={event.folderName} />
-          </div>
+          {event.folderName &&
+            <div className="flex flex-col items-center gap-8">
+              <Gallery eventName={event.folderName} />
+            </div>}
+
           <button
             onClick={() => navigate('/')}
             className="mt-8 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition"

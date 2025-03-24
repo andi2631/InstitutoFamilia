@@ -23,15 +23,15 @@ const CursoMatrimonioDescription: React.FC = () => {
       <ul className="list-disc pl-6 mt-2">
         <li>
           <strong>El noviazgo auténtico:</strong> Reflexionaremos sobre su
-          importancia y cómo vivirlo plenamente.
+          importancia y cómo vivirlo plenamente. Conocerse, tratarse y respetarse.
         </li>
         <li>
           <strong>Comunicación efectiva:</strong> ¿Cómo nos hablamos? ¿Cómo
           mejorar nuestra forma de expresarnos?
         </li>
         <li>
-          <strong>Sexualidad y fertilidad:</strong> Un don y un desafío para la
-          pareja.
+          <strong>Sexualidad y fertilidad:</strong> Un don y un desafío para el matrimonio. Métodos naturales.
+
         </li>
         <li>
           <strong>Los lenguajes del amor:</strong> Conociéndolos para fortalecer
@@ -39,7 +39,7 @@ const CursoMatrimonioDescription: React.FC = () => {
         </li>
         <li>
           <strong>Aprender a perdonar:</strong> Clave para una relación
-          saludable.
+          saludable. Si hay perdón, todo tiene solución.
         </li>
         <li>
           <strong>Pautas para manejar el dinero en pareja:</strong> Construyendo
@@ -58,8 +58,7 @@ const CursoMatrimonioDescription: React.FC = () => {
           enriquecen la relación.
         </li>
         <li>
-          <strong>El matrimonio como vocación:</strong> Descubriendo su
-          significado y el sacramento.
+          <strong>Sacramento del matrimonio:</strong> Importancia del consentimiento.
         </li>
         <li>
           <strong>Testimonios de matrimonios:</strong> Experiencias reales de
@@ -70,11 +69,9 @@ const CursoMatrimonioDescription: React.FC = () => {
       <h3 className="text-xl font-semibold mt-4">Metodología del programa</h3>
       <p className="mt-2">
         Cada módulo incluye charlas y dinámicas interactivas dirigidas por
-        especialistas. Al finalizar cada sesión, los participantes podrán
-        compartir su experiencia y dar feedback sobre los encuentros a través de
-        WhatsApp. Además, al terminar el curso, realizaremos una videollamada
-        grupal para conocernos mejor y conversar sobre lo aprendido en un
-        espacio de intercambio abierto.
+        especialistas. Al finalizar el curso realizaremos una entrevista personal con cada pareja de novios
+        para tener una instancia personalizada y poder recibir de los participantes su experiencia y su feedback sobre
+        los encuentros.
       </p>
 
       <h3 className="text-xl font-semibold my-4 ">¿Cuándo y dónde?</h3>
@@ -83,15 +80,23 @@ const CursoMatrimonioDescription: React.FC = () => {
         semestre, y cuenta con un <strong>cupo aproximado de 20 parejas</strong>
         .
       </p>
-      <ul className="list-disc pl-6">
+      <ul className="list-disc pl-6 mt-2">
         <li>
-          <strong>Modalidad:</strong> Presencial en Montevideo, con posibilidad
-          de evaluar casos de personas del interior u otras situaciones
-          especiales.
+          <strong>MODALIDAD:</strong>
+          <ul className="list-disc pl-6 my-2">
+            <li>
+              <strong className="text-blue-800">📍 Presencial:</strong> En Montevideo, con posibilidad
+              de evaluar casos de personas del interior u otras situaciones especiales.
+            </li>
+            <li>
+              <strong className="text-blue-800">💻 Virtual:</strong> A través del links de YouTube. Se entregan los
+              módulos y luego de la finalización de cada uno hay una devolución del mismo vía Whatsapp.
+              Al finalizar el curso hay una entrevista virtual con un matrimonio del equipo de ICF.
+            </li>
+          </ul>
         </li>
         <li>
-          <strong>Organiza:</strong> Instituto de Ciencias Familiares (ICF) -
-          Uruguay.
+          <strong>ORGANIZA:</strong> Instituto de Ciencias Familiares (ICF) - Uruguay.
         </li>
       </ul>
 
@@ -105,7 +110,7 @@ const CursoMatrimonioDescription: React.FC = () => {
         nosotros.
       </p>
       <h3 className="text-xl font-semibold mt-4">
-        Formulario de inscripción 2025:{" "}
+        📋 Formulario de inscripción 2025:{" "}
         <a
           href="https://docs.google.com/forms/d/e/1FAIpQLSc7TyEEzppLPeHOWy7kWpaHq1zfERARt91B8mPu-1DoMutiDg/viewform"
           className="text-blue-600 underline"

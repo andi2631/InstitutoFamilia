@@ -28,27 +28,27 @@ const Gallery: React.FC<GalleryProps> = ({ eventName }) => {
 
   const handlePlay = () => {
     setAutoplay(false);
-    sliderRef.current?.slickPause(); 
+    sliderRef.current?.slickPause();
   };
 
   const handlePause = () => {
     setAutoplay(true);
-    sliderRef.current?.slickPlay(); 
+    sliderRef.current?.slickPlay();
   };
 
   if (loading) return <p>Cargando multimedia...</p>;
 
   return (
-    <div className="w-full max-w-4xl mx-auto my-8">
+    <div className="w-full max-w-4xl mx-auto my-8 border-2 border-gray-200 rounded-xl shadow-md bg-white p-6">
       <Slider
         ref={sliderRef}
-        dots={false}
+        dots={true}
         infinite={true}
         slidesToShow={1}
         slidesToScroll={1}
         speed={1000}
         cssEase="linear"
-        arrows={true}
+        arrows={false}
         autoplay={autoplay}
         autoplaySpeed={2500}
       >
