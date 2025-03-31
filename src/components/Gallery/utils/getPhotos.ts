@@ -20,7 +20,7 @@ export const listMediaFromFolder = (folderName: string): MediaFile[] => {
 
   if (folderName === "sobreRocas") {
     media.push(
-      { src: `/gallery/${folderName}/video1.mp4`, type: "video", alt: "Imagen 1" },
+      { src: `/gallery/${folderName}/img1.jpeg`, type: "image", alt: "Imagen 1" },
       { src: `/gallery/${folderName}/img2.jpeg`, type: "image", alt: "Imagen 2" },
       { src: `/gallery/${folderName}/img3.jpeg`, type: "image", alt: "Imagen 1" },
       { src: `/gallery/${folderName}/img4.jpeg`, type: "image", alt: "Imagen 2" },

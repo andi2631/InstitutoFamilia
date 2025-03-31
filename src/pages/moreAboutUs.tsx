@@ -21,12 +21,12 @@ const AntecedentesMagisterio = () => {
               edad de 93 años.{" "}
             </p>
             <p>
-              Sacerdote pasionista de ascendencia irlandesa, fue reconocido
+              Sacerdote Pasionista de ascendencia irlandesa, fue reconocido
               internacionalmente por su incansable labor apostólica en favor de
               la familia. Inspirado en el llamado del Papa Pío XII a defender la
               institución familiar, dedicó su vida a la formación y
               espiritualidad conyugal, promoviendo valores fundamentales para la
-              vida matrimonial y la paternidad responsable.{" "}
+              vida matrimonial y la Paternidad responsable.{" "}
             </p>
             <p>
               Fiel al Magisterio de la Iglesia, el Padre Pedro abrazó y difundió
@@ -41,10 +41,10 @@ const AntecedentesMagisterio = () => {
             <p>
               Más adelante, la Familiaris Consortio, solicitaba en su num 35;
               "Ante el problema de una honesta regulación de la natalidad, la
-              comunidad celestial, en el tiempo presente, debe preocuparse por
+              comunidad eclesial, en el tiempo presente, debe preocuparse por
               suscitar convicciones y ofrecer ayudas concretas a quienes desean
               vivir la paternidad y la maternidad de modo verdaderamente
-              responsable." El ICF (instituto de ciencias familiares) es su obra
+              responsable." El ICF (Instituto de Ciencias Familiares) es su obra
               Magna: el P. Pedro incluye en ella todo lo que su sentido
               apostólico y evangelizador encuentra propicio para la Familia.
             </p>
@@ -106,7 +106,7 @@ const AntecedentesMagisterio = () => {
               Nacional de Planificación Natural de la Familia), integrándose al
               concierto internacional de instituciones afines y contribuyó al
               esfuerzo global en la protección de los valores matrimoniales, así
-              como en la difusión y enseñanza de los Métodos Naturales.{" "}
+              como en la difusión y enseñanza de los Métodos Naturales de Reconocimiento de la Fertilidad.{" "}
             </p>
           </div>
         </div>
@@ -132,7 +132,7 @@ const AntecedentesMagisterio = () => {
             <span className="text-blue-500 font-bold mr-2">•</span>
             Concientizar a los casados a la generosidad en su fecundidad, siendo
             la pareja en último término quien determine, según las normas
-            éticas, cuantos y cuándo han de encarnar su amor.
+            éticas, cuántos y cuándo han de encarnar su amor.
           </li>
           <li className="flex items-start">
             <span className="text-blue-500 font-bold mr-2">•</span>

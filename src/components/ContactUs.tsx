@@ -203,7 +203,7 @@ const ContactUs = () => {
                 <div className="flex items-center space-x-4">
                   <Phone className="text-blue-500" size={30} />
                   <p className="text-lg text-gray-700">
-                    099 313 326 (Inés Garicoïts de Ferrés)
+                    098 130 002 (Inés Garicoïts de Ferrés)
                   </p>
                 </div>
                 <div className="flex items-center space-x-4">
