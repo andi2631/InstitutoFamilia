@@ -15,7 +15,8 @@ const MetodosNaturalesDescription: React.FC = () => {
       <ul className="list-disc pl-6 mt-2">
         <li><strong>Inocuos para la salud:</strong> No se utilizan fármacos, dispositivos ni procedimientos mecánicos o quirúrgicos.</li>
         <li><strong>Reversibles:</strong> Pueden usarse tanto para posponer como para buscar el embarazo.</li>
-        <li><strong>Abstinencia periódica:</strong> Si se desea posponer el embarazo, se deberá evitar la relación conyugal durante la fase fértil del ciclo menstrual.</li>
+        <li><strong>Para buscar el embarazo:</strong> Si se tienen dificultades para concebir un hijo, el reconocimiento de la fertilidad en el ciclo femenino permite ubicar el encuentro conyugal donde hay más posibilidades de embarazarse. </li>
+        <li><strong>Abstinencia periódica:</strong> Si se desea posponer el embarazo, se deberá evitar la relación conyugal durante la fase fértil del ciclo femenino.</li>
         <li><strong>Confiables:</strong> Un estudio de la OMS otorgó una eficacia del 98,5% al Método de la Ovulación, estableciendo que toda mujer puede reconocer los días fértiles e infértiles del ciclo si se le enseña qué buscar y cómo buscarlo.</li>
         <li><strong>Entrenamiento personalizado:</strong> Adaptado a cada pareja para mejorar su conocimiento y aplicación.</li>
         <li><strong>Fortalece el vínculo de amor entre los esposos:</strong> Basado en la colaboración mutua y el respeto a la naturaleza biológica del varón y la mujer por igual.</li>
