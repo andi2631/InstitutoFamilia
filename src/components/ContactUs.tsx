@@ -183,7 +183,7 @@ const ContactUs = () => {
               <h3 className="text-2xl text-blue-800 mb-4">Contacto General</h3>
               <div className="flex items-center space-x-4 mb-4">
                 <Mail className="text-blue-500" size={30} />
-                <p className="text-lg text-gray-700">icf.general@gmail.com</p>
+                <p className="text-lg text-gray-700">icfuruguay@gmail.com</p>
               </div>
             </div>
 
