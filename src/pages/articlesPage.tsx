@@ -13,11 +13,23 @@ const ArticlesPage: React.FC = () => {
   useEffect(() => {
     setArticles([
       {
-        title: "¿Está acabando el feminismo con «la mujer femenina»?",
+        title: "¿está acabando el feminismo con «la mujer femenina»?",
         description: "7 claves para la «emergencia de nuestro tiempo»",
         imageUrl: "/articles_photos/feminism_photo.png",
         link: "https://www.religionenlibertad.com/cultura/220525/feminismo-lucha-feminidad-libro-maria-calvo_91150.html?utm_source=newsletter&utm_medium=email&utm_campaign=20250208&utm_content=noticia",
       },
+      {
+        title: "Familiaris Consortio",
+        description: "Exhortación apostólica Familiaris Consortio de su santidad Juan Pablo ii al episcopado, al clero y a los fieles de toda la iglesia sobre la misión de la familia cristiana en el mundo actual",
+        imageUrl: "/articles_photos/familiaris_consortio.png",
+        link: "https://www.vatican.va/content/john-paul-ii/es/apost_exhortations/documents/hf_jp-ii_exh_19811122_familiaris-consortio.html",
+      },
+      {
+        title: "Encuentro mundial de las familias",
+        description: "Catequesis de preparación al X ENCUENTRO MUNDIAL DE LAS FAMILIAS",
+        imageUrl: "/articles_photos/encuentro_mundial.png",
+        link: "https://icm.org.uy/wp-content/uploads/2022/05/X-Encuentro-Mundial-de-las-familias.pdf",
+      }
     ]);
   }, []);
 
@@ -31,10 +43,10 @@ const ArticlesPage: React.FC = () => {
             <div className="p-4">
               <h2 className="text-xl font-semibold mb-2">{article.title}</h2>
               <p className="text-gray-600 mb-4">{article.description}</p>
-              <a 
-                href={article.link} 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href={article.link}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-block bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
               >
                 Leer más
