@@ -61,7 +61,7 @@ const EventGallery = () => {
               key={index}
               data-aos="fade-up"
               data-aos-delay={`${index * 100}`}
-              className="transform transition-transform duration-300 hover:scale-105"
+              className="transform transition-transform duration-300 hover:scale-200"
             >
               <EventComponent
                 src={event.src}
