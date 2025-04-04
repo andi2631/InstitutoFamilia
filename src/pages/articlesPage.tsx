@@ -29,7 +29,13 @@ const ArticlesPage: React.FC = () => {
         description: "Catequesis de preparación al X ENCUENTRO MUNDIAL DE LAS FAMILIAS",
         imageUrl: "/articles_photos/encuentro_mundial.png",
         link: "https://icm.org.uy/wp-content/uploads/2022/05/X-Encuentro-Mundial-de-las-familias.pdf",
-      }
+      },
+      {
+        title: "Portal de libros UCA",
+        description: "Libros de la Universidad Católica de Argentina",
+        imageUrl: "/articles_photos/portal_de_libros.png",
+        link: "https://omp.uca.edu.ar/index.php/uca/index",
+      },
     ]);
   }, []);
 
@@ -39,7 +45,7 @@ const ArticlesPage: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {articles.map((article) => (
           <div className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
-            <img src={article.imageUrl} alt={article.title} className="w-full h-48 object-cover" />
+            <img src={article.imageUrl} alt={article.title} className="w-full h-48 object-fill" />
             <div className="p-4">
               <h2 className="text-xl font-semibold mb-2">{article.title}</h2>
               <p className="text-gray-600 mb-4">{article.description}</p>
