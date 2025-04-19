@@ -42,7 +42,6 @@ const EventGallery = () => {
               <EventComponent
                 src={event.src}
                 alt={event.alt}
-                eventName={event.eventName}
                 onClick={() => handleClick({ eventName: event.url })}
               />
             </div>

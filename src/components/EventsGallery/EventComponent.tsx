@@ -3,17 +3,14 @@ import React from 'react';
 interface EventComponentProps {
   src: string;
   alt: string;
-  eventName: string;
   onClick?: () => void;
 }
 
-const EventComponent: React.FC<EventComponentProps> = ({ src, alt, eventName, onClick }) => {
+const EventComponent: React.FC<EventComponentProps> = ({ src, alt, onClick }) => {
   return (
-    <div className="w-full max-w-sm overflow-hidden rounded-lg shadow-lg m-4 cursor-pointer transform transition duration-300 hover:scale-105 hover:shadow-lg" onClick={onClick}>      <div className="bg-pantone-classic-blue font-bold text-white text-center font-lexend p-2">
-      {eventName}
-    </div>
+    <div className="w-full max-w-sm overflow-hidden rounded-s shadow-lg m-4 cursor-pointer transform transition duration-300 hover:scale-105 hover:shadow-2xl" onClick={onClick}>
 
-      {/* Imagen */}
+      {/* Flyer evento */}
       <img
         src={src}
         alt={alt}
