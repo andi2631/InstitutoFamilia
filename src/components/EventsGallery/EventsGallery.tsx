@@ -22,7 +22,7 @@ const EventGallery = () => {
     {
       src: "/logos/Cimientos_flyer.jpeg",
       alt: "",
-      eventName: "Cimientos del Matrimonio",
+      eventName: "Cimientos",
       id: 2,
       path: "cimientos",
     },
