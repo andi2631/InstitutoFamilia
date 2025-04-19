@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { eventMap } from '../components/Events/eventsMap';
+import { events } from "../components/Events/eventsList";
 import Gallery from '../components/Gallery/Gallery';
 import CursoMatrimonioDescription from '../components/Events/CursoMatrimonio/cursoMatrimonioDescription';
 import SobreRocasDescription from '../components/Events/SobreRocas/sobreRocasDescription';
@@ -9,8 +10,6 @@ import MetodosNaturalesDescription from '../components/Events/Fertilidad/fertili
 const EventPage: React.FC = () => {
   const { eventName } = useParams<{ eventName: string }>();
   const navigate = useNavigate();
-
-  console.log("eventName", eventName);
 
   if (!eventName) {
     return (
@@ -28,7 +27,7 @@ const EventPage: React.FC = () => {
     );
   }
 
-  const validEventIds = ["sobreRocas", "cimientos", "reconocimientoFertilidad"];
+  const validEventIds = events.map(event => event.url);
   if (!validEventIds.includes(eventName)) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 text-center">
@@ -40,7 +39,7 @@ const EventPage: React.FC = () => {
           onClick={() => navigate('/')}
           className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
         >
-          Prueba con: /sobreRocas o /cimientos
+          Nuestros actuales eventos son: Sobre Roca, Cimientos y reconocimiento de la fertilidad.
         </button>
       </div>
     );

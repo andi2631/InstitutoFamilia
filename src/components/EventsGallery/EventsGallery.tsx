@@ -1,6 +1,6 @@
 import EventComponent from "./EventComponent";
 import { useNavigate } from "react-router-dom";
-import { EventData } from "../../utils/types";
+import { events } from "../Events/eventsList";
 
 const EventGallery = () => {
   const navigate = useNavigate();
@@ -18,29 +18,6 @@ const EventGallery = () => {
     eventName: string;
   }
 
-  const events: EventData[] = [
-    {
-      src: "/logos/Cimientos_flyer.jpeg",
-      alt: "",
-      eventName: "Cimientos",
-      id: 2,
-      path: "cimientos",
-    },
-    {
-      src: "/logos/flyer_sobreRocas.jpeg",
-      alt: "",
-      eventName: "Sobre Roca",
-      id: 1,
-      path: "sobreRocas",
-    },
-    {
-      src: "/logos/flyer_fertilidad.jpg",
-      alt: "",
-      eventName: "Reconocimiento de Fertilidad",
-      id: 3,
-      path: "reconocimientoFertilidad",
-    },
-  ];
 
   return (
     <section
@@ -48,7 +25,6 @@ const EventGallery = () => {
       className="py-16 bg-gradient-to-b from-blue-50 via-white to-gray-100"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Título estilizado */}
         <h2 className="text-4xl font-extrabold text-gray-800 text-center mb-12 relative">
           Nuestras actividades:
           <span className="absolute left-1/2 transform -translate-x-1/2 -bottom-2 w-16 h-1 bg-blue-500 rounded"></span>
@@ -67,7 +43,7 @@ const EventGallery = () => {
                 src={event.src}
                 alt={event.alt}
                 eventName={event.eventName}
-                onClick={() => handleClick({ eventName: event.path })}
+                onClick={() => handleClick({ eventName: event.url })}
               />
             </div>
           ))}
