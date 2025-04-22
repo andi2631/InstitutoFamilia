@@ -32,6 +32,7 @@ export const listMediaFromFolder = (folderName: string): MediaFile[] => {
 
   if (folderName === "cimientos") {
     media.push(
+      { src: `/gallery/${folderName}/1Avideo_novios.mp4`, type: "video", alt: "Video 4" },
       { src: `/gallery/${folderName}/img4.jpeg`, type: "image", alt: "Imagen 4" },
       { src: `/gallery/${folderName}/img5.jpeg`, type: "image", alt: "Imagen 5" },
       { src: `/gallery/${folderName}/img6.jpeg`, type: "image", alt: "Imagen 6" },
@@ -43,6 +44,7 @@ export const listMediaFromFolder = (folderName: string): MediaFile[] => {
       { src: `/gallery/${folderName}/video1.mp4`, type: "video", alt: "Video 1" },
       { src: `/gallery/${folderName}/video2.mp4`, type: "video", alt: "Video 2" },
       { src: `/gallery/${folderName}/video3.mp4`, type: "video", alt: "Video 3" },
+
     );
   }
 
