@@ -18,11 +18,8 @@ const OrganizationCard: React.FC<OrganizationCardProps> = ({ imageUrl, name, lin
       <img
         src={imageUrl}
         alt={name}
-        className="w-full h-32 object-fill"
+        className="w-full h-28 object-contain"
       />
-      <div className="p-2 bg-blue-50 text-center h-12 flex items-center justify-center">
-        {name}
-      </div>
 
     </a>
   );

@@ -56,10 +56,10 @@ const AntecedentesMagisterio = () => {
             className="w-full h-full object-cover mt-4"
           />
           <div className="mt-1 text-lg text-gray-800 leading-relaxed space-y-6">
-            <p>
+            <p className="text-center">
               {" "}
               <em>
-                P. Pedro Richards (izquierda) junto a Juan Pablo II (derecha).
+                “Quiero que toda mujer conozca el Método Billings de reconocimiento de la fertilidad”. (Diciendo San Juan Pablo II al P. Pedro).
               </em>
             </p>
           </div>
@@ -70,7 +70,7 @@ const AntecedentesMagisterio = () => {
             className="w-full h-full object-cover mt-4"
           />
           <div className="mt-1 text-lg text-gray-800 leading-relaxed space-y-6">
-            <p>
+            <p className="text-center">
               {" "}
               <em>P. Pedro en su habitual espacio de trabajo.</em>
             </p>
@@ -92,7 +92,7 @@ const AntecedentesMagisterio = () => {
               >
                 Humanae Vitae
               </a>{" "}
-              y el{" "}
+              y la{" "}
               <a
                 href="https://www.vatican.va/content/john-paul-ii/es/apost_exhortations/documents/hf_jp-ii_exh_19811122_familiaris-consortio.html"
                 className="text-blue-600 underline inline"
@@ -106,7 +106,8 @@ const AntecedentesMagisterio = () => {
               Nacional de Planificación Natural de la Familia), integrándose al
               concierto internacional de instituciones afines y contribuyó al
               esfuerzo global en la protección de los valores matrimoniales, así
-              como en la difusión y enseñanza de los Métodos Naturales de Reconocimiento de la Fertilidad.{" "}
+              como en la difusión y enseñanza de los Métodos Naturales de Reconocimiento de la Fertilidad encuad
+              rada en la Teología del Cuerpo dada por San Juan Pablo II .{" "}
             </p>
           </div>
         </div>
@@ -123,7 +124,7 @@ const AntecedentesMagisterio = () => {
           </li>
           <li className="flex items-start">
             <span className="text-blue-500 font-bold mr-2">•</span>
-            Impartir conocimientos integrales sobre la transmisión de la Vida
+            Impartir conocimientos integrales sobre la conyugalidad y la transmisión de la Vida
             Humana con base en las normas teológicas y morales de la Iglesia
             Católica Apostólica Romana. La ortodoxia papal es la Roca sobre la
             cual ha de apoyarse.

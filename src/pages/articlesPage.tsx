@@ -45,7 +45,7 @@ const ArticlesPage: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {articles.map((article) => (
           <div className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
-            <img src={article.imageUrl} alt={article.title} className="w-full h-48 object-fill" />
+            <img src={article.imageUrl} alt={article.title} className="w-full h-48 object-contain" />
             <div className="p-4">
               <h2 className="text-xl font-semibold mb-2">{article.title}</h2>
               <p className="text-gray-600 mb-4">{article.description}</p>

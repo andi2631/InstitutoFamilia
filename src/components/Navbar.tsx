@@ -30,15 +30,15 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-blue-50 shadow-lg py-2">
+    <nav className="bg-blue-50 shadow-lg py-4">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <img
               onClick={() => handleNavigation('/')}
-              src="logos/icf_banner_azul.png"
+              src="logos_icf/Instituto de Ciencias Familiares-40.png"
               alt="ICF"
-              className="h-auto w-56 ml-19 pl-15 md:ml-10 cursor-pointer"
+              className="h-24 w-28 ml-19 pl-15 md:ml-10 cursor-pointer object-contain"
             />
           </div>
 
