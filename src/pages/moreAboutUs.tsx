@@ -151,9 +151,9 @@ const AntecedentesMagisterio = () => {
                 href="https://www.vatican.va/content/john-paul-ii/es/apost_exhortations/documents/hf_jp-ii_exh_19811122_familiaris-consortio.html"
                 className="text-blue-600 underline inline"
               >
-                Familiaris Consortio
+                Familiaris Consortio,
               </a>{" "}
-              y las Instrucciones de la Santa Sede.
+              las enseñanzas de la teología del cuerpo dadas por Juan Pablo ll y demas instrucciones de la santa sede.
             </span>
           </li>
         </ul>

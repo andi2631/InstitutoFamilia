@@ -36,7 +36,7 @@ const Navbar = () => {
           <div className="flex items-center">
             <img
               onClick={() => handleNavigation('/')}
-              src="logos_icf/Instituto de Ciencias Familiares-40.png"
+              src="logos_icf/logo_redondo_icf_azul.png"
               alt="ICF"
               className="h-24 w-28 ml-19 pl-15 md:ml-10 cursor-pointer object-contain"
             />
