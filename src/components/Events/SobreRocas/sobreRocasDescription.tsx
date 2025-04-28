@@ -32,7 +32,7 @@ const SobreRocasDescription: React.FC = () => {
         🕖 Desde el sábado a las 9:00 hasta el domingo a las 18:00
       </p>
       <h3 className="text-xl font-semibold mt-4">
-        Formulario de pre inscripción 2025: <a href="" className="text-blue-600 underline"> https://forms.gle/YB2MveagVbztR44R9</a>
+        Formulario de pre inscripción 2025: <a href="https://forms.gle/YB2MveagVbztR44R9" className="text-blue-600 underline"> https://forms.gle/YB2MveagVbztR44R9</a>
       </h3>
     </div>
   );
