@@ -13,7 +13,7 @@ const ArticlesPage: React.FC = () => {
   useEffect(() => {
     setArticles([
       {
-        title: "¿está acabando el feminismo con «la mujer femenina»?",
+        title: "¿Está acabando el feminismo con «la mujer femenina»?",
         description: "7 claves para la «emergencia de nuestro tiempo»",
         imageUrl: "/articles_photos/feminism_photo.png",
         link: "https://www.religionenlibertad.com/cultura/220525/feminismo-lucha-feminidad-libro-maria-calvo_91150.html?utm_source=newsletter&utm_medium=email&utm_campaign=20250208&utm_content=noticia",
