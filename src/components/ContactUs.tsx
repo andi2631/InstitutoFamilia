@@ -219,7 +219,7 @@ const ContactUs = () => {
             <div className="bg-white shadow-lg rounded-lg p-8"
               data-aos="fade-left">
               <h3 className="text-2xl text-blue-800 mb-4">
-                Cimientos del Matrimonio
+                Cimientos
               </h3>
               <div className="space-y-4">
                 <div className="flex items-center space-x-4">
