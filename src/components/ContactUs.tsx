@@ -237,7 +237,7 @@ const ContactUs = () => {
                 <div className="flex items-center space-x-4">
                   <Phone className="text-blue-500" size={30} />
                   <p className="text-lg text-gray-700">
-                    092 023 465 (María Noel)
+                    092 023 465 (María Noel de Tezanos)
                   </p>
                 </div>
               </div>
