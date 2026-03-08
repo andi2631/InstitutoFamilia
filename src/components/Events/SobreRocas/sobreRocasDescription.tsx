@@ -25,15 +25,10 @@ const SobreRocasDescription: React.FC = () => {
 
       <h3 className="text-xl font-semibold mt-4">Fechas y horarios:</h3>
       <p className="mt-2">
-        📍 Las Citas son los lunes en Carrasco o los miércoles en Parque Batlle, de 20:00 a 22:10. <br />
-        🗓 Comienza primera semana de agosto.  <br /><br />
-
-        📍 El retiro será en el Hotel Regency Park de Jacksonville, Montevideo, 30 y 31 de agosto.
-        <br />
-        🕖 Comienza sábado 30 a las 9 hs hasta domingo 31 a las 18:30 hs
+        A definir...
       </p>
       <h3 className="text-xl font-semibold mt-4">
-        Formulario de inscripción 2025: <a href="https://forms.gle/YB2MveagVbztR44R9" className="text-blue-600 underline"> https://forms.gle/YB2MveagVbztR44R9</a>
+        Formulario de inscripción 2026: <a href="forms.gle/SfeDoccMgu6MQsb79" className="text-blue-600 underline"> Click aquí</a>
       </h3>
       <div className="flex items-center space-x-4 mt-4">
         <a href="https://www.instagram.com/sobreroca_matrimonios/" target="_blank" rel="noopener noreferrer">
