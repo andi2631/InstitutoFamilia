@@ -27,7 +27,7 @@ const SobreRocasDescription: React.FC = () => {
         Para más información hacé clic en el formulario de preinscripción
       </p>
       <h3 className="text-xl font-semibold mt-4">
-        Formulario de preinscripción 2026: <a href="https://forms.gle/SfeDoccMgu6MQsb79" className="text-blue-600 underline"> Click aquí</a>
+        Formulario de preinscripción 2027: <a href="https://forms.gle/dVppVrGtXHemJ17S7" className="text-blue-600 underline"> Click aquí</a>
       </h3>
       <div className="flex items-center space-x-4 mt-4">
         <a href="https://www.instagram.com/sobreroca_matrimonios/" target="_blank" rel="noopener noreferrer">
