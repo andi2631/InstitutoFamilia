@@ -1,8 +1,52 @@
 import React, { useState } from "react";
-import { Mail, Phone } from "lucide-react";
+import { Loader2, Mail, Phone, Quote, Send } from "lucide-react";
 import TransitionsSnackbar from "./SnackBar";
 import emailjs from "@emailjs/browser";
 import OrganizationList from "./Organizations/OrganizationList";
+
+interface ContactItem {
+  type: "mail" | "phone";
+  value: string;
+  person?: string;
+}
+
+interface ContactBlock {
+  title: string;
+  items: ContactItem[];
+}
+
+const CONTACT_BLOCKS: ContactBlock[] = [
+  {
+    title: "Contacto general",
+    items: [{ type: "mail", value: "icfuruguay@gmail.com" }],
+  },
+  {
+    title: 'Experiencia "Sobre Roca"',
+    items: [
+      { type: "mail", value: "icf.sobreroca@gmail.com" },
+      { type: "phone", value: "098 130 002", person: "Inés Garicoïts de Ferrés" },
+      { type: "phone", value: "099 045 446", person: "Majo Ximenez de Rachetti" },
+    ],
+  },
+  {
+    title: "Cimientos",
+    items: [
+      { type: "mail", value: "cienciasfamiliares@gmail.com" },
+      { type: "phone", value: "094 363 602", person: "Mónica Regules" },
+      { type: "phone", value: "092 023 465", person: "María Noel de Tezanos" },
+    ],
+  },
+];
+
+/** 098 130 002 -> tel:+59898130002 */
+const toHref = (item: ContactItem) =>
+  item.type === "mail"
+    ? `mailto:${item.value}`
+    : `tel:+598${item.value.replace(/\D/g, "").replace(/^0/, "")}`;
+
+const inputClass =
+  "w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-2.5 text-gray-800 placeholder-gray-400 transition focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500/30";
+const labelClass = "mb-1.5 block text-sm font-medium text-gray-700";
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -12,6 +56,7 @@ const ContactUs = () => {
     phoneNumber: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [hasError, setHasError] = useState(false);
 
   const [snackbarOpen, setSnackbarOpen] = useState(false);
 
@@ -27,11 +72,11 @@ const ContactUs = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setFormData({ name: "", email: "", message: "", phoneNumber: "" });
     setIsSubmitting(true);
+    setHasError(false);
 
     try {
-      const result = await emailjs.send(
+      await emailjs.send(
         "service_ajarp6z",
         "template_bsqz3ba",
         {
@@ -44,11 +89,11 @@ const ContactUs = () => {
         "zwgmP-UN6Q1MeHPnn"
       );
 
-      console.log("Email sent successfully:", result.text);
       setFormData({ name: "", email: "", message: "", phoneNumber: "" });
       setSnackbarOpen(true);
     } catch (error) {
       console.error("Failed to send email:", error);
+      setHasError(true);
     } finally {
       setIsSubmitting(false);
     }
@@ -61,202 +106,199 @@ const ContactUs = () => {
   return (
     <section
       id="contact"
-      className="py-16 bg-gradient-to-b from-blue-50 to-gray-100 font-lexend"
+      className="bg-gradient-to-b from-blue-50 to-gray-100 py-16 font-lexend"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2
-          className="text-4xl font-extrabold text-gray-800 text-center mb-12"
-          data-aos="fade-up"
-        >
-          ¡Contáctanos!
-        </h2>
-        <div
-          className="grid grid-cols-1 md:grid-cols-2 gap-12"
-          data-aos="fade-up"
-        >
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <header className="mb-12 text-center" data-aos="fade-up">
+          <h2 className="text-4xl font-extrabold text-blue-800">¡Contáctanos!</h2>
+          <div className="mx-auto mt-3 h-1 w-16 rounded-full bg-blue-500" />
+          <p className="mx-auto mt-4 max-w-2xl text-gray-600">
+            Escribinos por el formulario o comunicate directamente con el equipo
+            de cada actividad.
+          </p>
+        </header>
+
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           {/* Formulario */}
-          <div className="bg-white shadow-lg rounded-lg p-10"
-            data-aos="fade-right">
-            <h3 className="text-2xl font-bold text-gray-800 mb-6">
+          <div
+            className="flex flex-col self-start rounded-2xl border border-gray-100 bg-white p-6 shadow-lg sm:p-8 md:sticky md:top-8"
+            data-aos="fade-right"
+          >
+            <h3 className="mb-5 flex items-center gap-3 text-2xl font-bold text-gray-800">
+              <span className="h-6 w-1 rounded-full bg-blue-500" />
               Envíanos un mensaje
             </h3>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label
-                  className="block text-gray-700 font-medium mb-2"
-                  htmlFor="name"
-                >
-                  Nombre:
-                </label>
-                <input
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                  id="name"
-                  type="text"
-                  placeholder="Tu nombre"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                />
+
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div>
+                  <label className={labelClass} htmlFor="name">
+                    Nombre
+                  </label>
+                  <input
+                    className={inputClass}
+                    id="name"
+                    type="text"
+                    placeholder="Tu nombre"
+                    name="name"
+                    autoComplete="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div>
+                  <label className={labelClass} htmlFor="phoneNumber">
+                    Celular
+                  </label>
+                  <input
+                    className={inputClass}
+                    id="phoneNumber"
+                    type="tel"
+                    inputMode="tel"
+                    placeholder="Tu celular"
+                    name="phoneNumber"
+                    autoComplete="tel"
+                    value={formData.phoneNumber}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
               </div>
               <div>
-                <label
-                  className="block text-gray-700 font-medium mb-2"
-                  htmlFor="phoneNumber"
-                >
-                  Número de celular:
+                <label className={labelClass} htmlFor="email">
+                  Email <span className="font-normal text-gray-400">(opcional)</span>
                 </label>
                 <input
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                  id="phoneNumber"
-                  type="text"
-                  placeholder="Tu número de celular"
-                  name="phoneNumber"
-                  value={formData.phoneNumber}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-              <div>
-                <label
-                  className="block text-gray-700 font-medium mb-2"
-                  htmlFor="email"
-                >
-                  (Opcional) Email:
-                </label>
-                <input
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                  className={inputClass}
                   id="email"
                   type="email"
                   placeholder="Tu correo electrónico"
                   name="email"
+                  autoComplete="email"
                   value={formData.email}
                   onChange={handleChange}
                 />
               </div>
               <div>
-                <label
-                  className="block text-gray-700 font-medium mb-2"
-                  htmlFor="message"
-                >
-                  Mensaje:
+                <label className={labelClass} htmlFor="message">
+                  Mensaje
                 </label>
                 <textarea
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                  className={`${inputClass} resize-y`}
                   id="message"
                   placeholder="Escribe tu mensaje aquí..."
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  rows={4}
-                ></textarea>
+                  rows={3}
+                />
               </div>
+
+              {hasError && (
+                <p className="rounded-xl bg-red-50 px-4 py-3 text-sm text-red-700">
+                  No pudimos enviar el mensaje. Probá de nuevo o escribinos a{" "}
+                  <a className="font-semibold underline" href="mailto:icfuruguay@gmail.com">
+                    icfuruguay@gmail.com
+                  </a>
+                  .
+                </p>
+              )}
+
               <button
-                className={`w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 transition ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""
-                  }`}
+                className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-3 font-semibold text-white shadow-sm transition hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
                 type="submit"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? "Enviando..." : "Enviar mensaje"}
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                    Enviando...
+                  </>
+                ) : (
+                  <>
+                    <Send className="h-4 w-4" />
+                    Enviar mensaje
+                  </>
+                )}
               </button>
             </form>
+
             <TransitionsSnackbar
               open={snackbarOpen}
               handleClose={handleCloseSnackbar}
             />
-            <div className="mt-12">
-              <img
-                src="logos_icf/Instituto de Ciencias Familiares-28.png"
-                alt="ICF"
-                className="my-auto p mx-auto w-80 h-auto"
-              />
-            </div>
+
+            <img
+              src="/logos_icf/Instituto de Ciencias Familiares-28.png"
+              alt="Instituto de Ciencias Familiares"
+              className="mx-auto mt-auto w-48 pt-8 opacity-80"
+            />
           </div>
 
           {/* Información de contacto */}
-          <div className="space-y-8">
-            {/* Información general del ICF */}
-            <div className="bg-white shadow-lg rounded-lg p-8"
-              data-aos="fade-left"
-            >
-              <h3 className="text-2xl text-blue-800 mb-4">Contacto General</h3>
-              <div className="flex items-center space-x-4 mb-4">
-                <Mail className="text-blue-500" size={30} />
-                <p className="text-lg text-gray-700">icfuruguay@gmail.com</p>
-              </div>
-            </div>
+          <div className="space-y-6">
+            {CONTACT_BLOCKS.map((block) => (
+              <div
+                key={block.title}
+                className="rounded-2xl border border-gray-100 bg-white p-5 shadow-lg transition duration-300 hover:shadow-xl sm:p-8"
+                data-aos="fade-left"
+              >
+                <h3 className="mb-4 flex items-center gap-3 text-xl font-semibold text-blue-800 sm:text-2xl">
+                  <span className="h-6 w-1 rounded-full bg-blue-500" />
+                  {block.title}
+                </h3>
 
-            {/* Experiencia "SOBRE ROCA" */}
-            <div className="bg-white shadow-lg rounded-lg p-8"
-              data-aos="fade-left">
-              <h3 className="text-2xl text-blue-800 mb-4">
-                Experiencia "Sobre Roca"
-              </h3>
-              <div className="space-y-4">
-                <div className="flex items-center space-x-4">
-                  <Mail className="text-blue-500" size={30} />
-                  <p className="text-lg text-gray-700">
-                    icf.sobreroca@gmail.com
-                  </p>
-                </div>
-                <div className="flex items-center space-x-4">
-                  <Phone className="text-blue-500" size={30} />
-                  <p className="text-lg text-gray-700">
-                    098 130 002 (Inés Garicoïts de Ferrés)
-                  </p>
-                </div>
-                <div className="flex items-center space-x-4">
-                  <Phone className="text-blue-500" size={30} />
-                  <p className="text-lg text-gray-700">
-                    099 045 446 (Majo Ximenez de Rachetti)
-                  </p>
-                </div>
+                <ul className="space-y-1">
+                  {block.items.map((item) => (
+                    <li key={item.value}>
+                      <a
+                        href={toHref(item)}
+                        className="group -mx-2 flex items-center gap-4 rounded-xl p-2 transition hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                      >
+                        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600 transition group-hover:bg-blue-600 group-hover:text-white">
+                          {item.type === "mail" ? (
+                            <Mail size={20} />
+                          ) : (
+                            <Phone size={20} />
+                          )}
+                        </span>
+                        <span className="min-w-0">
+                          <span className="block break-words text-sm font-medium text-gray-800 transition group-hover:text-blue-700 sm:text-base">
+                            {item.value}
+                          </span>
+                          {item.person && (
+                            <span className="block text-sm text-gray-500">
+                              {item.person}
+                            </span>
+                          )}
+                        </span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </div>
-
-            {/* Cimientos del Matrimonio */}
-            <div className="bg-white shadow-lg rounded-lg p-8"
-              data-aos="fade-left">
-              <h3 className="text-2xl text-blue-800 mb-4">
-                Cimientos
-              </h3>
-              <div className="space-y-4">
-                <div className="flex items-center space-x-4">
-                  <Mail className="text-blue-500" size={30} />
-                  <p className="text-lg text-gray-700">
-                    cienciasfamiliares@gmail.com
-                  </p>
-                </div>
-                <div className="flex items-center space-x-4">
-                  <Phone className="text-blue-500" size={30} />
-                  <p className="text-lg text-gray-700">
-                    094 363 602 (Mónica Regules)
-                  </p>
-                </div>
-                <div className="flex items-center space-x-4">
-                  <Phone className="text-blue-500" size={30} />
-                  <p className="text-lg text-gray-700">
-                    092 023 465 (María Noel de Tezanos)
-                  </p>
-                </div>
-              </div>
-            </div>
+            ))}
 
             {/* Frase inspiradora */}
-            <div className="bg-white shadow-lg rounded-lg p-8"
-              data-aos="fade-left">
-              <p className="text-lg text-gray-700 border-l-4 border-blue-500 pl-4">
-                <em>
-                  “El que escucha mis Palabras y las practica, se parece a un
-                  hombre que queriendo construir una casa, cavó profundamente y
-                  puso los cimientos sobre la Roca” <br />
-                  <b> Lc 6: 47-49 </b>
-                </em>
-              </p>
-            </div>
+            <figure
+              className="rounded-2xl border border-blue-100 bg-white p-6 shadow-lg sm:p-8"
+              data-aos="fade-left"
+            >
+              <Quote className="mb-3 h-7 w-7 text-blue-200" fill="currentColor" />
+              <blockquote className="border-l-4 border-blue-500 pl-4 text-lg italic leading-relaxed text-gray-700">
+                El que escucha mis Palabras y las practica, se parece a un hombre
+                que queriendo construir una casa, cavó profundamente y puso los
+                cimientos sobre la Roca
+              </blockquote>
+              <figcaption className="mt-3 pl-5 text-sm font-bold text-blue-800">
+                Lc 6, 47-49
+              </figcaption>
+            </figure>
           </div>
         </div>
+
         <OrganizationList />
       </div>
     </section>
