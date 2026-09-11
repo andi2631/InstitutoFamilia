@@ -1,11 +1,25 @@
-import React from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import { eventMap } from '../components/Events/eventsMap';
+import React from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
+import { eventMap } from "../components/Events/eventsMap";
 import { events } from "../components/Events/eventsList";
-import Gallery from '../components/Gallery/Gallery';
-import CursoMatrimonioDescription from '../components/Events/CursoMatrimonio/cursoMatrimonioDescription';
-import SobreRocasDescription from '../components/Events/SobreRocas/sobreRocasDescription';
-import MetodosNaturalesDescription from '../components/Events/Fertilidad/fertilidadDescription';
+import Gallery from "../components/Gallery/Gallery";
+import CursoMatrimonioDescription from "../components/Events/CursoMatrimonio/cursoMatrimonioDescription";
+import SobreRocasDescription from "../components/Events/SobreRocas/sobreRocasDescription";
+import MetodosNaturalesDescription from "../components/Events/Fertilidad/fertilidadDescription";
+
+const BackLink = () => {
+  const navigate = useNavigate();
+  return (
+    <button
+      onClick={() => navigate(-1)}
+      className="group inline-flex items-center gap-2 font-sans text-sm font-medium text-[#003DA5] transition-colors hover:text-[#0B1B33] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#003DA5]/40"
+    >
+      <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-0.5" />
+      Volver
+    </button>
+  );
+};
 
 const EventPage: React.FC = () => {
   const { eventName } = useParams<{ eventName: string }>();
@@ -13,13 +27,13 @@ const EventPage: React.FC = () => {
 
   if (!eventName) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 text-center">
-        <p className="text-xl font-semibold text-red-600">
-          Error: El parámetro <strong>`eventId`</strong> no es válido.
+      <div className="flex min-h-[60vh] flex-col items-center justify-center bg-white px-6 text-center">
+        <p className="font-grotesk text-2xl font-medium text-[#10182B]">
+          El evento solicitado no es válido.
         </p>
         <button
-          onClick={() => navigate('/')}
-          className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+          onClick={() => navigate("/")}
+          className="mt-6 bg-[#003DA5] px-7 py-3.5 font-grotesk font-semibold text-white transition-colors hover:bg-[#0B1B33] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#003DA5]/40 focus-visible:ring-offset-2"
         >
           Volver a la página principal
         </button>
@@ -27,19 +41,23 @@ const EventPage: React.FC = () => {
     );
   }
 
-  const validEventIds = events.map(event => event.url);
+  const validEventIds = events.map((event) => event.url);
   if (!validEventIds.includes(eventName)) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 text-center">
-        <h1 className="text-3xl font-bold text-gray-800">Evento no encontrado</h1>
-        <p className="text-lg text-gray-600 mt-2">
-          El evento con nombre <span className="text-red-600 font-semibold">{eventName}</span> no existe.
+      <div className="flex min-h-[60vh] flex-col items-center justify-center bg-white px-6 text-center">
+        <h1 className="font-grotesk text-3xl font-medium text-[#10182B]">
+          Evento no encontrado
+        </h1>
+        <p className="mt-3 max-w-md text-lg text-[#10182B]/70">
+          El evento <span className="font-semibold text-[#003DA5]">{eventName}</span> no
+          existe. Nuestras actividades actuales son Sobre Roca, Cimientos y
+          Reconocimiento de la Fertilidad.
         </p>
         <button
-          onClick={() => navigate('/')}
-          className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+          onClick={() => navigate("/")}
+          className="mt-6 bg-[#003DA5] px-7 py-3.5 font-grotesk font-semibold text-white transition-colors hover:bg-[#0B1B33] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#003DA5]/40 focus-visible:ring-offset-2"
         >
-          Nuestros actuales eventos son: Sobre Roca, Cimientos y reconocimiento de la fertilidad.
+          Volver a la página principal
         </button>
       </div>
     );
@@ -51,39 +69,32 @@ const EventPage: React.FC = () => {
     switch (event.id) {
       case 1:
         return <CursoMatrimonioDescription />;
+      case 3:
+        return <MetodosNaturalesDescription />;
       default:
       case 2:
-        return <SobreRocasDescription />
-      case 3:
-        return <MetodosNaturalesDescription />
-        return null;
+        return <SobreRocasDescription />;
     }
-  }
+  };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-16">
-      <div className="max-w-4xl mx-auto px-6 sm:px-8">
-        <div className="bg-white rounded-lg shadow-lg p-8 justify-center">
-          <h1 className="text-4xl font-bold text-blue-800 my-4 text-center mx-auto">
+    <div className="bg-white">
+      <div className="mx-auto max-w-3xl px-6 py-16 sm:px-8 sm:py-20">
+        <BackLink />
+
+        <div className="mt-8 border-l-4 border-[#003DA5] pl-6 sm:pl-10">
+          <h1 className="font-grotesk text-4xl font-medium leading-[0.95] tracking-tight text-[#10182B] sm:text-5xl">
             {event.name}
           </h1>
-          {renderEventInfo()}
-          <div className="mt-6">
-            <p className="text-gray-600">
-            </p>
-          </div>
-          {event.folderName &&
-            <div className="flex flex-col items-center gap-8">
-              <Gallery eventName={event.folderName} />
-            </div>}
-
-          <button
-            onClick={() => navigate('/')}
-            className="mt-8 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition"
-          >
-            Volver a la página principal
-          </button>
         </div>
+
+        <div className="mt-10">{renderEventInfo()}</div>
+
+        {event.folderName && (
+          <div className="mt-4">
+            <Gallery eventName={event.folderName} />
+          </div>
+        )}
       </div>
     </div>
   );

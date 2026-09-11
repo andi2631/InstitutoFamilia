@@ -2,6 +2,10 @@ import EventComponent from "./EventComponent";
 import { useNavigate } from "react-router-dom";
 import { events } from "../Events/eventsList";
 
+interface EventParams {
+  eventName: string;
+}
+
 const EventGallery = () => {
   const navigate = useNavigate();
 
@@ -14,37 +18,24 @@ const EventGallery = () => {
     navigate(fullRoute);
   };
 
-  interface EventParams {
-    eventName: string;
-  }
-
-
   return (
-    <section
-      id="gallery"
-      className="py-16 bg-gradient-to-b from-blue-50 via-white to-gray-100"
-    >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-extrabold text-gray-800 text-center mb-12 relative">
-          Nuestras actividades:
-          <span className="absolute left-1/2 transform -translate-x-1/2 -bottom-2 w-16 h-1 bg-blue-500 rounded"></span>
-        </h2>
+    <section id="gallery" className="bg-gradient-to-b from-blue-50 via-white to-gray-100">
+      <div className="mx-auto max-w-6xl px-6 py-20 sm:px-8 sm:py-28">
+        <div className="mb-14 border-l-4 border-[#003DA5] pl-6 sm:pl-10">
+          <h2 className="font-grotesk text-4xl font-medium tracking-tight text-[#10182B] sm:text-5xl">
+            Nuestras actividades
+          </h2>
+        </div>
 
-        {/* Contenedor de eventos en cuadrícula */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {events.map((event, index) => (
-            <div
-              key={index}
-              data-aos="fade-up"
-              data-aos-delay={`${index * 100}`}
-              className="transform transition-transform duration-300 hover:scale-200"
-            >
-              <EventComponent
-                src={event.src}
-                alt={event.alt}
-                onClick={() => handleClick({ eventName: event.url })}
-              />
-            </div>
+        <div className="grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+          {events.map((event) => (
+            <EventComponent
+              key={event.url}
+              src={event.src}
+              alt={event.alt}
+              eventName={event.eventName}
+              onClick={() => handleClick({ eventName: event.url })}
+            />
           ))}
         </div>
       </div>
